@@ -1,0 +1,246 @@
+/* =============================================================
+   FLASHCARDS TJ-SP - estilos (pensado primeiro para celular)
+   ============================================================= */
+:root {
+    --azul: #5265d5;
+    --azul-escuro: #3f4fb3;
+    --fundo: #f4f6fb;
+    --cartao: #ffffff;
+    --texto: #1f2537;
+    --suave: #6b7489;
+    --borda: #e3e7f0;
+    --verde: #1f9d63;
+    --verde-claro: #e3f6ec;
+    --vermelho: #d6453d;
+    --vermelho-claro: #fdeceb;
+    --amarelo-claro: #fff6dd;
+}
+
+/* Tema escuro: segue o sistema, mas respeita a escolha explícita (data-theme) */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --fundo: #12151f;
+        --cartao: #1c2030;
+        --texto: #e8eaf2;
+        --suave: #9aa2b8;
+        --borda: #2c3247;
+        --verde-claro: #16332a;
+        --vermelho-claro: #3a1d1f;
+        --amarelo-claro: #2f2a18;
+        color-scheme: dark;
+    }
+}
+:root[data-theme="dark"] {
+    --fundo: #12151f;
+    --cartao: #1c2030;
+    --texto: #e8eaf2;
+    --suave: #9aa2b8;
+    --borda: #2c3247;
+    --verde-claro: #16332a;
+    --vermelho-claro: #3a1d1f;
+    --amarelo-claro: #2f2a18;
+    color-scheme: dark;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.5;
+    -webkit-tap-highlight-color: transparent;
+}
+
+main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-block: 16px calc(32px + env(safe-area-inset-bottom, 0px));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Faixa acima do topo fixo (área do notch) pintada na cor do cabeçalho */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    background: var(--azul);
+}
+
+/* ---------- Topo ---------- */
+.topo {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-block: 12px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    background: var(--azul);
+    color: #fff;
+}
+.topo h1 { font-size: 18px; flex: 1; }
+.voltar { color: #fff; text-decoration: none; font-size: 22px; line-height: 1; padding: 4px 8px 4px 0; }
+.selo { font-size: 11px; background: rgba(255,255,255,.18); padding: 4px 8px; border-radius: 99px; white-space: nowrap; }
+
+/* ---------- Tela inicial ---------- */
+.resumo-geral {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.resumo-geral div {
+    background: var(--cartao);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    padding: 12px 8px;
+    text-align: center;
+}
+.resumo-geral strong { display: block; font-size: 22px; color: var(--azul); }
+.resumo-geral span { font-size: 12px; color: var(--suave); }
+
+.titulo-secao { font-size: 15px; margin: 18px 0 10px; }
+
+.lista-materias { display: grid; gap: 8px; }
+.materia {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    background: var(--cartao);
+    color: var(--texto);
+    border: 2px solid var(--borda);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font: inherit;
+    cursor: pointer;
+}
+.materia.selecionada { border-color: var(--azul); box-shadow: 0 0 0 3px rgba(82,101,213,.15); }
+.materia-icone { font-size: 22px; }
+.materia-info { flex: 1; min-width: 0; }
+.materia-info strong { display: block; font-size: 15px; }
+.materia-info small { color: var(--suave); font-size: 12px; }
+.mini-barra { height: 5px; background: var(--borda); border-radius: 99px; margin-top: 6px; overflow: hidden; }
+.mini-barra div { height: 100%; background: var(--verde); }
+
+.modos { display: grid; gap: 8px; }
+.modo {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--cartao);
+    border: 2px solid var(--borda);
+    border-radius: 14px;
+    padding: 12px 14px;
+    cursor: pointer;
+}
+.modo:has(input:checked) { border-color: var(--azul); }
+.modo input { margin-top: 4px; accent-color: var(--azul); }
+.modo strong { display: block; font-size: 14px; }
+.modo span { font-size: 13px; color: var(--suave); }
+.modo span strong { color: var(--texto); }
+
+.aviso { margin-top: 10px; color: var(--vermelho); font-size: 14px; text-align: center; }
+.nota { margin-top: 18px; font-size: 12px; color: var(--suave); text-align: center; }
+
+/* ---------- Botões ---------- */
+.botao {
+    border: none;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    background: var(--azul);
+    color: #fff;
+    touch-action: manipulation;
+}
+.botao:active { transform: scale(.98); }
+.botao.grande { width: 100%; margin-top: 16px; }
+.botao.secundario { background: var(--borda); color: var(--texto); margin-top: 10px; }
+.botao-link {
+    display: block;
+    margin: 14px auto 0;
+    background: none;
+    border: none;
+    color: var(--suave);
+    font: inherit;
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* ---------- Sessão de estudo ---------- */
+.barra-sessao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--suave);
+}
+.barra-sessao .botao-link { margin: 0; text-decoration: none; }
+.trilho { height: 6px; background: var(--borda); border-radius: 99px; margin: 10px 0 16px; overflow: hidden; }
+.trilho-preenchido { height: 100%; width: 0; background: var(--azul); transition: width .3s; }
+
+.cartao {
+    background: var(--cartao);
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    padding: 20px 18px;
+    box-shadow: 0 6px 20px rgba(20, 30, 70, .06);
+    animation: entrar .25s ease;
+}
+@keyframes entrar { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.etiqueta {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--azul);
+    background: rgba(82,101,213,.12);
+    padding: 4px 10px;
+    border-radius: 99px;
+}
+.pergunta-tipo { margin-top: 14px; font-size: 13px; color: var(--suave); }
+.afirmacao { margin-top: 6px; font-size: 18px; font-weight: 600; }
+
+.botoes-resposta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+.botao.certo { background: var(--verde); }
+.botao.errado { background: var(--vermelho); }
+.botoes-resposta .botao { padding: 16px 8px; font-size: 17px; }
+
+.verso { margin-top: 18px; border-top: 1px dashed var(--borda); padding-top: 16px; }
+.resultado { font-size: 17px; font-weight: 800; padding: 10px 14px; border-radius: 12px; }
+.resultado.acertou { background: var(--verde-claro); color: var(--verde); }
+.resultado.errou { background: var(--vermelho-claro); color: var(--vermelho); }
+.gabarito { margin-top: 10px; font-size: 15px; }
+.verso h3 { margin-top: 16px; font-size: 14px; }
+.explicacao { margin-top: 6px; background: var(--amarelo-claro); border-radius: 12px; padding: 10px 12px; font-size: 15px; }
+.texto-lei {
+    margin-top: 6px;
+    border-left: 4px solid var(--azul);
+    background: var(--fundo);
+    border-radius: 0 12px 12px 0;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-style: italic;
+    white-space: pre-line;
+}
+
+/* ---------- Fim ---------- */
+.fim { text-align: center; }
+.fim-icone { font-size: 46px; }
+.fim h2 { margin-top: 6px; }
+.fim p { color: var(--suave); margin-top: 6px; }
+.fim-erros { text-align: left; margin-top: 14px; display: grid; gap: 8px; }
+.fim-erros div { background: var(--vermelho-claro); border-radius: 10px; padding: 8px 10px; font-size: 13px; }
+.fim-erros strong { display: block; }

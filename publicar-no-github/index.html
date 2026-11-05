@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Organizador de Estudos</title>
+    <meta name="description" content="Organize suas tarefas, disciplinas e rotina de estudos.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- =========================================================
+         CONFIGURAÇÃO DO PWA
+         - manifest.json: diz ao navegador nome, ícones e cores do app
+           (é o que permite "Instalar" o site como aplicativo).
+         - theme-color: cor da barra do navegador/janela do app.
+         - apple-touch-icon / apple-mobile-web-app-*: suporte ao iPhone,
+           que ainda lê algumas informações por meta tags.
+         ========================================================= -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#5265d5">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="StudyPlan">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-icon">📚</span>
+                <h2>StudyPlan</h2>
+            </div>
+
+            <p class="menu-titulo">MENU PRINCIPAL</p>
+
+            <nav class="menu">
+
+                <a href="#inicio" class="menu-item ativo">
+                    <span>🏠</span>
+                    Início
+                </a>
+
+                <a href="#tarefas" class="menu-item">
+                    <span>✅</span>
+                    Minhas tarefas
+                </a>
+
+                <a href="#disciplinas" class="menu-item">
+                    <span>📖</span>
+                    Disciplinas
+                </a>
+
+                <a href="#calendario" class="menu-item">
+                    <span>📅</span>
+                    Calendário
+                </a>
+
+                <a href="#progresso" class="menu-item">
+                    <span>📊</span>
+                    Meu progresso
+                </a>
+
+                <a href="flashcards.html" class="menu-item">
+                    <span>🃏</span>
+                    Flashcards TJ-SP
+                </a>
+
+            </nav>
+
+            <div class="sidebar-inferior">
+
+                <!-- Botão de instalação: fica escondido e só aparece quando
+                     o navegador avisar que o app pode ser instalado
+                     (evento "beforeinstallprompt" no script.js). -->
+                <button id="botaoInstalar" class="botao-instalar" type="button" hidden>
+                    ⬇️ Instalar aplicativo
+                </button>
+
+                <div class="dica">
+                    <span class="dica-icone">💡</span>
+                    <h3>Continue avançando!</h3>
+                    <p>Organize suas tarefas e alcance seus objetivos.</p>
+                </div>
+
+                <p class="versao">Organizador de Estudos • PWA</p>
+            </div>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo" id="inicio">
+
+            <!-- Aviso de conexão: o script.js mostra esta faixa quando o
+                 aparelho fica sem internet (o app continua funcionando
+                 graças ao Service Worker). -->
+            <div id="statusConexao" class="status-conexao" hidden>
+                📴 Você está offline. Suas tarefas continuam salvas neste aparelho.
+            </div>
+
+            <!-- CABEÇALHO -->
+            <header class="cabecalho">
+
+                <div>
+                    <p class="saudacao">OLÁ! BEM-VINDO(A) 👋</p>
+                    <h1>Meu organizador de estudos</h1>
+                    <p class="subtitulo">
+                        Planeje sua rotina e acompanhe suas atividades.
+                    </p>
+                </div>
+
+                <div class="perfil">
+                    <div class="avatar">👤</div>
+                    <div>
+                        <strong>Estudante</strong>
+                        <p>Minha área de estudos</p>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- RESUMO (os números são preenchidos pelo script.js) -->
+            <section class="resumo">
+
+                <div class="card-resumo">
+                    <div class="card-topo">
+                        <span>Tarefas cadastradas</span>
+                        <span class="card-icone azul">📝</span>
+                    </div>
+                    <h2 id="totalTarefas">0</h2>
+                    <p>Total de atividades</p>
+                </div>
+
+                <div class="card-resumo">
+                    <div class="card-topo">
+                        <span>Concluídas</span>
+                        <span class="card-icone verde">✓</span>
+                    </div>
+                    <h2 id="totalConcluidas">0</h2>
+                    <p>Tarefas finalizadas</p>
+                </div>
+
+                <div class="card-resumo">
+                    <div class="card-topo">
+                        <span>Pendentes</span>
+                        <span class="card-icone laranja">⏳</span>
+                    </div>
+                    <h2 id="totalPendentes">0</h2>
+                    <p>Atividades para fazer</p>
+                </div>
+
+                <div class="card-resumo">
+                    <div class="card-topo">
+                        <span>Progresso</span>
+                        <span class="card-icone roxo">📈</span>
+                    </div>
+                    <h2 id="totalProgresso">0%</h2>
+                    <p>Do planejamento concluído</p>
+                </div>
+
+            </section>
+
+
+            <!-- ÁREA DE TAREFAS -->
+            <section class="secao" id="tarefas">
+
+                <div class="secao-cabecalho">
+                    <div>
+                        <h2>Minhas tarefas</h2>
+                        <p>Organize o que você precisa estudar.</p>
+                    </div>
+
+                    <div class="botoes-cabecalho">
+                        <button id="botaoImportarEdital" class="botao-principal" type="button">
+                            📥 Importar edital TJ-SP
+                        </button>
+                        <button id="botaoNovaTarefa" class="botao-principal" type="button">
+                            + Nova tarefa
+                        </button>
+                    </div>
+                </div>
+
+                <!-- FORMULÁRIO: é um <form> de verdade, assim o Enter
+                     também cadastra e o "required" valida os campos. -->
+                <form id="formTarefa" class="formulario-tarefa">
+
+                    <h3>Cadastrar tarefa</h3>
+
+                    <div class="campos">
+
+                        <div class="campo campo-grande">
+                            <label for="nomeTarefa">Nome da tarefa</label>
+                            <input
+                                type="text"
+                                id="nomeTarefa"
+                                maxlength="100"
+                                required
+                                placeholder="Ex.: Revisar arts. 312 a 317 do Código Penal">
+                        </div>
+
+                        <div class="campo">
+                            <label for="disciplina">Disciplina</label>
+                            <select id="disciplina" required>
+                                <option value="">Selecione</option>
+                                <!-- As demais opções vêm do objeto DISCIPLINAS no script.js -->
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="prazo">Prazo</label>
+                            <input type="date" id="prazo" required>
+                        </div>
+
+                    </div>
+
+                    <button class="botao-principal" type="submit">
+                        Cadastrar tarefa
+                    </button>
+
+                </form>
+
+
+                <!-- LISTA DE TAREFAS -->
+                <div class="lista-tarefas">
+
+                    <div class="lista-cabecalho">
+                        <h3>Próximas atividades</h3>
+
+                        <select id="filtroTarefas" aria-label="Filtrar tarefas">
+                            <option value="todas">Todas as tarefas</option>
+                            <option value="pendentes">Pendentes</option>
+                            <option value="concluidas">Concluídas</option>
+                        </select>
+                    </div>
+
+                    <!-- As tarefas são criadas dentro desta <ul> pelo script.js -->
+                    <ul id="listaTarefas" class="tarefas"></ul>
+
+                    <div id="estadoVazio" class="estado-vazio">
+                        <span>📋</span>
+                        <h3>Nenhuma tarefa cadastrada</h3>
+                        <p>Suas atividades aparecerão aqui.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DISCIPLINAS E PROGRESSO -->
+            <section class="duas-colunas">
+
+                <div class="painel" id="disciplinas">
+
+                    <div class="painel-cabecalho">
+                        <h2>Minhas disciplinas</h2>
+                        <span>📚</span>
+                    </div>
+
+                    <!-- Preenchido pelo script.js com a contagem de tarefas -->
+                    <div id="listaDisciplinas"></div>
+
+                </div>
+
+
+                <div class="painel" id="progresso">
+
+                    <div class="painel-cabecalho">
+                        <h2>Meu progresso</h2>
+                        <span>📊</span>
+                    </div>
+
+                    <p class="texto-progresso">
+                        Acompanhe a conclusão das suas tarefas.
+                    </p>
+
+                    <div class="progresso-info">
+                        <span>Atividades concluídas</span>
+                        <strong id="progressoTexto">0%</strong>
+                    </div>
+
+                    <div class="barra-progresso">
+                        <div id="barraPreenchida" class="barra-preenchida"></div>
+                    </div>
+
+                    <div class="mensagem-progresso">
+                        <span>🎯</span>
+                        <p id="mensagemProgresso">Cadastre suas primeiras tarefas para começar!</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CALENDÁRIO: tarefas pendentes agrupadas por data de prazo -->
+            <section class="painel secao" id="calendario">
+
+                <div class="painel-cabecalho">
+                    <h2>Calendário de prazos</h2>
+                    <span>📅</span>
+                </div>
+
+                <div id="listaCalendario"></div>
+
+            </section>
+
+
+            <!-- RODAPÉ -->
+            <footer>
+                <p>Organizador de Estudos © 2026</p>
+                <p>Seus estudos, mais organizados.</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- O script fica no fim do <body> para rodar depois que o HTML existir -->
+    <script src="script.js"></script>
+
+</body>
+</html>

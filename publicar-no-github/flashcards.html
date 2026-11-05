@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Flashcards TJ-SP</title>
+    <meta name="description" content="Flashcards de Certo/Errado com a letra da lei para o concurso de Escrevente do TJ-SP (VUNESP).">
+
+    <link rel="stylesheet" href="flashcards.css">
+
+    <!-- Mesmo manifest do Organizador: os flashcards fazem parte do app instalado -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#5265d5">
+    <link rel="icon" type="image/png" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="StudyPlan">
+</head>
+
+<body>
+
+    <header class="topo">
+        <a href="index.html" class="voltar" aria-label="Voltar ao organizador">←</a>
+        <h1>Flashcards TJ-SP</h1>
+        <span class="selo">Escrevente • VUNESP</span>
+    </header>
+
+    <main>
+
+        <!-- ================= TELA 1: ESCOLHER O QUE ESTUDAR ================= -->
+        <section id="telaInicio" class="tela">
+
+            <div class="resumo-geral">
+                <div><strong id="geralRespondidos">0</strong><span>cartões vistos</span></div>
+                <div><strong id="geralAcerto">0%</strong><span>de acerto</span></div>
+                <div><strong id="geralRevisar">0</strong><span>para revisar</span></div>
+            </div>
+
+            <h2 class="titulo-secao">1. Escolha a matéria</h2>
+            <div id="listaMaterias" class="lista-materias"></div>
+
+            <h2 class="titulo-secao">2. Escolha o modo</h2>
+            <div class="modos" role="radiogroup">
+                <label class="modo">
+                    <input type="radio" name="modo" value="inteligente" checked>
+                    <span><strong>🧠 Revisão inteligente</strong>Prioriza o que você errou e o que ainda não viu.</span>
+                </label>
+                <label class="modo">
+                    <input type="radio" name="modo" value="erros">
+                    <span><strong>❌ Só os que errei</strong>Refaça os cartões que estão para revisar.</span>
+                </label>
+                <label class="modo">
+                    <input type="radio" name="modo" value="todos">
+                    <span><strong>🔀 Todos embaralhados</strong>Passa por todos os cartões da matéria.</span>
+                </label>
+            </div>
+
+            <button id="botaoComecar" class="botao grande" type="button">Começar</button>
+            <p id="avisoInicio" class="aviso" hidden></p>
+
+            <button id="botaoZerar" class="botao-link" type="button">Zerar meu progresso</button>
+
+            <p class="nota">
+                Cartões de Direito baseados na letra da lei (CP, CPP, CPC, CF/88, Leis 9.099/95,
+                12.153/09, 8.429/92 e Lei SP 10.261/68) e de Língua Portuguesa pela norma-padrão.
+                Leis mudam: confira o texto atualizado em planalto.gov.br e al.sp.gov.br antes da prova.
+            </p>
+        </section>
+
+
+        <!-- ================= TELA 2: ESTUDANDO ================= -->
+        <section id="telaEstudo" class="tela" hidden>
+
+            <div class="barra-sessao">
+                <button id="botaoSair" class="botao-link" type="button">✕ Sair</button>
+                <span id="contadorSessao">1 / 20</span>
+                <span id="placarSessao">✅ 0 · ❌ 0</span>
+            </div>
+            <div class="trilho"><div id="trilhoPreenchido" class="trilho-preenchido"></div></div>
+
+            <article class="cartao" id="cartao">
+                <span id="cartaoMateria" class="etiqueta"></span>
+                <p class="pergunta-tipo">Julgue a afirmação:</p>
+                <p id="cartaoAfirmacao" class="afirmacao"></p>
+
+                <div id="botoesResposta" class="botoes-resposta">
+                    <button class="botao certo" type="button" data-resposta="true">✔ Certo</button>
+                    <button class="botao errado" type="button" data-resposta="false">✘ Errado</button>
+                </div>
+
+                <!-- Verso do cartão: aparece depois de responder -->
+                <div id="verso" class="verso" hidden>
+                    <div id="resultado" class="resultado"></div>
+                    <p class="gabarito">Gabarito: <strong id="gabarito"></strong></p>
+
+                    <h3 id="tituloExplicacao">O que estava errado</h3>
+                    <p id="explicacao" class="explicacao"></p>
+
+                    <h3><span id="iconeReferencia">📜</span> <span id="referencia"></span></h3>
+                    <blockquote id="textoLei" class="texto-lei"></blockquote>
+
+                    <button id="botaoProximo" class="botao grande" type="button">Próximo →</button>
+                </div>
+            </article>
+        </section>
+
+
+        <!-- ================= TELA 3: FIM DA SESSÃO ================= -->
+        <section id="telaFim" class="tela" hidden>
+            <div class="cartao fim">
+                <span class="fim-icone" id="fimIcone">🎯</span>
+                <h2 id="fimTitulo">Sessão concluída!</h2>
+                <p id="fimTexto"></p>
+                <div id="fimErros" class="fim-erros"></div>
+                <button id="botaoRevisarErros" class="botao grande" type="button">Refazer os que errei</button>
+                <button id="botaoVoltarInicio" class="botao secundario grande" type="button">Voltar ao início</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="flashcards-dados.js"></script>
+    <script src="flashcards-dados-2.js"></script>
+    <script src="flashcards-portugues.js"></script>
+    <script src="flashcards.js"></script>
+</body>
+</html>
