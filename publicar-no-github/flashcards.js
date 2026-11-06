@@ -19,7 +19,13 @@ const ICONES = {
     "Direito Processual Civil": "📑",
     "Direito Constitucional": "🏛️",
     "Direito Administrativo": "🏢",
-    "Língua Portuguesa": "✍️"
+    "Língua Portuguesa": "✍️",
+    "Estatuto dos Servidores SP": "👔",
+    "Res. 850/2021 – Teletrabalho": "🏠",
+    "Res. 963/2025 – eproc": "💻",
+    "LC 1.111/2010 – Carreiras TJSP": "📈",
+    "Regimento Interno TJSP": "📜",
+    "Estatuto da Pessoa com Deficiência": "♿"
 };
 
 

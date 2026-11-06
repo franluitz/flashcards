@@ -9,7 +9,7 @@
 // IMPORTANTE: sempre que alterar algum arquivo do app (HTML, CSS,
 // JS...), mude a versão abaixo (v2, v3...). Assim o navegador
 // percebe que existe um Service Worker novo e atualiza o cache.
-const CACHE_NAME = "studyplan-v5";
+const CACHE_NAME = "studyplan-v6";
 
 // Arquivos essenciais do app ("app shell") guardados para uso offline
 const arquivos = [
@@ -23,6 +23,7 @@ const arquivos = [
     "./flashcards-dados.js",
     "./flashcards-dados-2.js",
     "./flashcards-portugues.js",
+    "./flashcards-normas-tjsp.js",
     "./manifest.json",
     "./icons/icon-192.png",
     "./icons/icon-512.png",

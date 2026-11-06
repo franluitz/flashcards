@@ -1485,25 +1485,25 @@ CARTOES.push(
   exp: "Correto." },
 
 // ----- Lei Estadual 10.261/68 -----
-{ id: "est241", d: "Direito Administrativo", ref: "Lei SP 10.261/68, art. 241, II",
+{ id: "est241", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 241, II",
   af: "É dever do funcionário cumprir as ordens superiores, representando quando forem manifestamente ilegais.",
   c: true,
   lei: "Artigo 241 - São deveres do funcionário: I - ser assíduo e pontual; II - cumprir as ordens superiores, representando quando forem manifestamente ilegais; (...)",
   exp: "Correto." },
 
-{ id: "est242", d: "Direito Administrativo", ref: "Lei SP 10.261/68, art. 242, I",
-  af: "Ao funcionário é proibido referir-se depreciativamente às autoridades e aos atos da Administração, podendo, porém, em trabalho assinado, apreciá-los do ponto de vista doutrinário ou da organização do serviço.",
+{ id: "est242", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 242",
+  af: "É proibido ao funcionário retirar, sem prévia permissão da autoridade competente, qualquer documento ou objeto existente na repartição.",
   c: true,
-  lei: "Artigo 242 - Ao funcionário é proibido: I - referir-se depreciativamente, em informação, parecer ou despacho, ou pela imprensa, ou qualquer meio de divulgação, às autoridades constituídas e aos atos da Administração, podendo, porém, em trabalho devidamente assinado, apreciá-los do ponto de vista doutrinário ou da organização do serviço; (...)",
-  exp: "Correto." },
+  lei: "Artigo 242 - Ao funcionário é proibido: I - Revogado (LC 1.096/2009); II - retirar, sem prévia permissão da autoridade competente, qualquer documento ou objeto existente na repartição; III - entreter-se, durante as horas de trabalho, em palestras, leituras ou outras atividades estranhas ao serviço; IV - deixar de comparecer ao serviço sem causa justificada; V - tratar de interesses particulares na repartição; (...) VIII - empregar material do serviço público em serviço particular.",
+  exp: "Correto. Atenção: o inciso I (referir-se depreciativamente às autoridades) foi REVOGADO pela LC 1.096/2009." },
 
-{ id: "est253", d: "Direito Administrativo", ref: "Lei SP 10.261/68, arts. 252 e 253",
+{ id: "est253", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, arts. 252 e 253",
   af: "A pena de repreensão será aplicada verbalmente, nos casos de indisciplina ou falta de cumprimento dos deveres.",
   c: false,
   lei: "Artigo 252 - Na aplicação das penas disciplinares serão consideradas a natureza e a gravidade da infração e os danos que dela provierem para o serviço público. Artigo 253 - A pena de repreensão será aplicada por escrito, nos casos de indisciplina ou falta de cumprimento dos deveres.",
   exp: "A repreensão é aplicada POR ESCRITO." },
 
-{ id: "est259", d: "Direito Administrativo", ref: "Lei SP 10.261/68, art. 259",
+{ id: "est259", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 259",
   af: "Será cassada a aposentadoria do inativo que praticou, quando em atividade, falta grave punível com demissão, ou que praticou a usura em qualquer de suas formas.",
   c: true,
   lei: "Artigo 259 - Será aplicada a pena de cassação de aposentadoria ou disponibilidade, se ficar provado que o inativo: I - praticou, quando em atividade, falta grave para a qual é cominada nesta lei a pena de demissão ou de demissão a bem do serviço público; II - aceitou ilegalmente cargo ou função pública; III - aceitou representação de Estado estrangeiro sem prévia autorização do Presidente da República; IV - praticou a usura em qualquer de suas formas.",
