@@ -9,7 +9,7 @@
 // IMPORTANTE: sempre que alterar algum arquivo do app (HTML, CSS,
 // JS...), mude a versão abaixo (v2, v3...). Assim o navegador
 // percebe que existe um Service Worker novo e atualiza o cache.
-const CACHE_NAME = "studyplan-v8";
+const CACHE_NAME = "studyplan-v9";
 
 // Arquivos essenciais do app ("app shell") guardados para uso offline
 const arquivos = [
@@ -41,7 +41,9 @@ self.addEventListener("install", event => {
     // considerar a instalação concluída
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(arquivos))
+            // cache: "reload" ignora cópias antigas do navegador e busca
+            // sempre a versão nova no servidor
+            .then(cache => cache.addAll(arquivos.map(url => new Request(url, { cache: "reload" }))))
     );
 
     // Ativa a nova versão sem esperar outras abas fecharem
