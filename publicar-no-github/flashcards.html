@@ -29,6 +29,27 @@
 
     <main>
 
+        <!-- ================= ABAS ================= -->
+        <nav class="abas" role="tablist">
+            <button id="abaFlashcards" class="aba ativa" type="button" role="tab" aria-selected="true">🃏 Flashcards</button>
+            <button id="abaCitacoes" class="aba" type="button" role="tab" aria-selected="false">✍️ Citações p/ redação</button>
+        </nav>
+
+        <!-- ================= ABA CITAÇÕES ================= -->
+        <section id="telaCitacoes" class="tela" hidden>
+            <div class="dica-redacao">
+                <strong>Como usar uma citação</strong>
+                <ol>
+                    <li><b>Introdução:</b> abra com a citação, ligue-a ao tema e apresente sua tese.</li>
+                    <li><b>Desenvolvimento:</b> use-a como argumento de autoridade e explique a relação com o problema.</li>
+                    <li><b>Conclusão:</b> retome a ideia da citação ao propor a solução.</li>
+                </ol>
+                <small>Cite o autor corretamente, use no máximo uma ou duas por texto e sempre comente a citação. Nos modelos, troque o trecho entre colchetes pelo seu tema.</small>
+            </div>
+            <div id="temasCitacoes" class="chips"></div>
+            <div id="listaCitacoes" class="lista-citacoes"></div>
+        </section>
+
         <!-- ================= TELA 1: ESCOLHER O QUE ESTUDAR ================= -->
         <section id="telaInicio" class="tela">
 
@@ -64,8 +85,9 @@
 
             <p class="nota">
                 Cartões de Direito baseados na letra da lei (CP, CPP, CPC, CF/88, Leis 9.099/95,
-                12.153/09, 8.429/92, 13.146/15, Lei SP 10.261/68, LC SP 1.111/10, Regimento Interno
-                e Resoluções 850 e 963 do TJSP) e de Língua Portuguesa pela norma-padrão.
+                12.153/09, 8.429/92, 13.146/15, Lei SP 10.261/68, LC SP 1.111/10, Regimento Interno,
+                Resoluções 850 e 963 e Normas da Corregedoria do TJSP), conforme os PDFs de
+                legislação mapeada, e de Língua Portuguesa pela norma-padrão.
                 Leis mudam: confira o texto atualizado em planalto.gov.br e al.sp.gov.br antes da prova.
             </p>
         </section>
@@ -126,6 +148,10 @@
     <script src="flashcards-dados-2.js"></script>
     <script src="flashcards-portugues.js"></script>
     <script src="flashcards-normas-tjsp.js"></script>
+    <script src="flashcards-pdfs-tjsp.js"></script>
+    <script src="flashcards-mais-tjsp.js"></script>
     <script src="flashcards.js"></script>
+    <script src="citacoes.js"></script>
+    <script src="citacoes-tela.js"></script>
 </body>
 </html>

@@ -635,10 +635,10 @@ CARTOES.push(
   exp: "O AQ NÃO se incorpora e sobre ele NÃO incide nenhuma vantagem. Lato sensu: mínimo de 360 horas." },
 
 { id: "lc1111-37b", d: "LC 1.111/2010 – Carreiras TJSP", ref: "LC SP 1.111/2010, art. 37-B (redação da LC 1.441/2026)",
-  af: "Pela redação atual, o Adicional de Qualificação é de 20% para Doutor, 15% para Mestre, 10% para Especialização e 7,5% para graduação, sem possibilidade de acumular percentuais.",
-  c: true,
-  lei: "Artigo 37-B - O Adicional de Qualificação - AQ incidirá sobre os vencimentos brutos equivalentes à base de contribuição previdenciária do cargo em que o servidor estiver em exercício, da seguinte forma: I - 20% (vinte por cento), em se tratando de título de Doutor; II - 15% (quinze por cento), em se tratando de título de Mestre; III - 10% (dez por cento), em se tratando de certificado de Especialização; e IV - 7,5% (sete inteiros e cinco décimos por cento), em se tratando de diploma de graduação em curso superior. (Redação dada pela LC 1.441, de 05/05/2026) § 1° - Em nenhuma hipótese o servidor perceberá cumulativamente qualquer percentual dentre os previstos nos incisos I a IV (...). § 2° - O Adicional de Qualificação será devido a partir do protocolo no Tribunal do diploma, certificado ou título, devidamente registrado.",
-  exp: "Correto pela LC 1.441/2026. Os valores antigos eram 12,5% / 10% / 7,5% / 5%. Confira qual redação o seu edital considera!" },
+  af: "O servidor com título de Doutor e também de Mestre pode receber cumulativamente os dois percentuais do Adicional de Qualificação.",
+  c: false,
+  lei: "Artigo 37-B - O Adicional de Qualificação - AQ incidirá sobre os vencimentos brutos equivalentes à base de contribuição previdenciária do cargo em que o servidor estiver em exercício, da seguinte forma: I - 12,5% (doze inteiros e cinco décimos por cento), em se tratando de título de Doutor; II - 10% (dez por cento), em se tratando de título de Mestre; III - 7,5% (sete inteiros e cinco décimos por cento), em se tratando de certificado de Especialização; IV - 5% (cinco por cento), em se tratando de diploma de graduação em curso superior. § 1° - Em nenhuma hipótese o servidor perceberá cumulativamente qualquer percentual dentre os previstos nos incisos I a IV do ‘caput’ deste artigo. § 2° - O Adicional de Qualificação será devido a partir do protocolo no Tribunal do diploma, certificado ou título, devidamente registrado.",
+  exp: "Em NENHUMA hipótese os percentuais se acumulam. Percentuais do PDF: Doutor 12,5%, Mestre 10%, Especialização 7,5%, Graduação 5%. Atenção: a LC 1.441/2026 elevou para 20% / 15% / 10% / 7,5%; confira qual redação o seu edital adota." },
 
 { id: "lc1111-esc", d: "LC 1.111/2010 – Carreiras TJSP", ref: "LC SP 1.111/2010, Anexo VII (Subanexo 1)",
   af: "O pré-requisito para o cargo de Escrevente Técnico Judiciário é o Ensino Superior completo.",

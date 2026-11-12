@@ -244,3 +244,25 @@ body::before {
 .fim-erros { text-align: left; margin-top: 14px; display: grid; gap: 8px; }
 .fim-erros div { background: var(--vermelho-claro); border-radius: 10px; padding: 8px 10px; font-size: 13px; }
 .fim-erros strong { display: block; }
+
+/* ---------- Abas (Flashcards / Citações) ---------- */
+.abas { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--borda); padding: 4px; border-radius: 12px; margin-bottom: 16px; }
+.aba { border: 0; background: transparent; color: var(--suave); font: inherit; font-size: 14px; font-weight: 600; padding: 9px 6px; border-radius: 9px; cursor: pointer; }
+.aba.ativa { background: var(--cartao); color: var(--azul); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+
+/* ---------- Citações para redação ---------- */
+.dica-redacao { background: var(--amarelo-claro); border: 1px solid var(--borda); border-radius: 14px; padding: 12px 14px; font-size: 14px; margin-bottom: 14px; }
+.dica-redacao ol { margin: 6px 0 6px 20px; }
+.dica-redacao small { color: var(--suave); display: block; }
+.chips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 10px; scrollbar-width: thin; }
+.chip { flex: 0 0 auto; border: 1px solid var(--borda); background: var(--cartao); color: var(--texto); font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 99px; cursor: pointer; white-space: nowrap; }
+.chip.ativa { background: var(--azul); border-color: var(--azul); color: #fff; }
+.lista-citacoes { display: grid; gap: 12px; }
+.citacao { background: var(--cartao); border: 1px solid var(--borda); border-radius: 16px; padding: 14px 16px; }
+.citacao-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.citacao-frase { font-size: 16px; font-style: italic; line-height: 1.45; border-left: 4px solid var(--azul); padding-left: 12px; margin: 4px 0 8px; }
+.citacao-autor { font-size: 13px; color: var(--suave); }
+.citacao-autor strong { color: var(--texto); }
+.citacao-uso { margin-top: 10px; border-top: 1px dashed var(--borda); padding-top: 8px; }
+.citacao-uso summary { cursor: pointer; font-weight: 600; color: var(--azul); font-size: 14px; }
+.citacao-uso p { margin-top: 8px; font-size: 14px; background: var(--fundo); border-radius: 10px; padding: 10px 12px; }

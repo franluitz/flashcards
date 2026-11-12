@@ -1,0 +1,693 @@
+// =============================================================
+// FLASHCARDS TJ-SP - BASEADOS NOS PDFs DE LEGISLAÇÃO MAPEADA
+// (1) Código Penal, (2) CPP + Lei 9.099, (3) CPC + Leis 9.099 e 12.153,
+// (4) Constituição, (5) Estatuto dos Servidores, (11) Normas da Corregedoria.
+// Prioridade: artigos marcados nos PDFs como já cobrados (TJ-SP 20xx)
+// que ainda não tinham cartão.
+// =============================================================
+
+CARTOES.push(
+
+// ===================== NORMAS DA CORREGEDORIA (NSCGJ) =====================
+{ id: "ncg5", d: "Normas da Corregedoria", ref: "NSCGJ, art. 5º",
+  af: "A função correcional no Estado de São Paulo é exercida pelo Corregedor Geral da Justiça e, nos limites de suas atribuições, pelos Juízes de Primeiro Grau.",
+  c: true,
+  lei: "Art. 5º A função correcional consiste na orientação, reorganização e fiscalização dos órgãos e serviços judiciários de primeira instância (...) e é exercida, no Estado de São Paulo, pelo Corregedor Geral da Justiça e, nos limites de suas atribuições, pelos Juízes de Primeiro Grau. (...) § 2º As ordens de serviço e demais atos administrativos editados pelo Juiz Corregedor Permanente serão encaminhados à Corregedoria Geral da Justiça para revisão hierárquica.",
+  exp: "Correto." },
+
+{ id: "ncg6a", d: "Normas da Corregedoria", ref: "NSCGJ, art. 6º, §§ 1º a 3º",
+  af: "A correição extraordinária é a fiscalização excepcional, realizada a qualquer momento e sem prévio anúncio, podendo ser geral ou parcial.",
+  c: true,
+  lei: "§ 1º A correição ordinária consiste na fiscalização prevista e efetivada segundo estas normas e leis de organização judiciária. § 2º A correição extraordinária consiste em fiscalização excepcional, realizada a qualquer momento e sem prévio anúncio e poderá ser geral ou parcial (...). § 3º A visita correcional consiste na fiscalização direcionada à verificação da regularidade de funcionamento da unidade, do saneamento de irregularidades constatadas em correições ou ao exame de algum aspecto da regularidade (...).",
+  exp: "Correto. Ordinária = prevista nas normas. Extraordinária = excepcional, sem aviso. Visita = direcionada." },
+
+{ id: "ncg6b", d: "Normas da Corregedoria", ref: "NSCGJ, art. 6º, § 4º",
+  af: "As atas da correição ordinária devem ser encaminhadas à Corregedoria Geral da Justiça em até 15 dias após realizada.",
+  c: false,
+  lei: "§ 4º As atas das correições e visitas serão encaminhadas à Corregedoria Geral da Justiça nos prazos que seguem: I - correição ordinária – até 60 (sessenta) dias após realizada; II - correição extraordinária ou visita correcional – até 15 (quinze) dias após realizada.",
+  exp: "Correição ORDINÁRIA: até 60 dias. Os 15 dias são da correição EXTRAORDINÁRIA ou da visita correcional." },
+
+{ id: "ncg8", d: "Normas da Corregedoria", ref: "NSCGJ, art. 8º",
+  af: "O Juiz Corregedor Permanente fará correição ordinária uma vez por ano, de preferência em dezembro, anunciada por edital com pelo menos 15 dias de antecedência e comunicada à OAB.",
+  c: true,
+  lei: "Art. 8º O Juiz Corregedor Permanente efetuará, uma vez por ano, de preferência no mês de dezembro, correição ordinária em todas as serventias (...). § 1º A correição ordinária será anunciada por edital, afixado no átrio do fórum e publicado no Diário da Justiça Eletrônico, com pelo menos quinze dias de antecedência, bem como comunicada à Ordem dos Advogados do Brasil da respectiva subseção.",
+  exp: "Correto." },
+
+{ id: "ncg9", d: "Normas da Corregedoria", ref: "NSCGJ, art. 9º",
+  af: "A visita correcional que o juiz deve fazer ao assumir a corregedoria permanente depende de edital publicado com 15 dias de antecedência.",
+  c: false,
+  lei: "Art. 9º Em até 30 (trinta) dias depois de assumir a corregedoria permanente em caráter definitivo, o juiz fará visita correcional às unidades sob sua corregedoria (...). § 1º A visita correcional independe de edital ou qualquer outra providência e dela se lançará sucinto termo no livro de visitas e correições (...). § 2º Se o juiz assumir a corregedoria permanente em caráter definitivo a partir do mês de novembro, a correição geral ordinária prescindirá da visita correcional.",
+  exp: "A visita correcional INDEPENDE de edital. Ela é feita em até 30 dias depois de assumir. Edital com 15 dias é para a correição ORDINÁRIA." },
+
+{ id: "ncg10", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 10 e 11",
+  af: "O escrivão auxiliará o Juiz Corregedor Permanente nas diligências correcionais, facultada a nomeação de escrivão ad hoc entre os demais servidores da unidade.",
+  c: true,
+  lei: "Art. 10. O escrivão auxiliará o Juiz Corregedor Permanente nas diligências correcionais, facultada a nomeação de escrivão ‘ad hoc’ entre os demais servidores da unidade. Art. 11. Durante os serviços correcionais, todos os funcionários da unidade permanecerão à disposição do Corregedor Geral da Justiça, dos Juízes Assessores da Corregedoria Geral ou do Juiz Corregedor Permanente (...).",
+  exp: "Correto." },
+
+{ id: "ncg13", d: "Normas da Corregedoria", ref: "NSCGJ, art. 13",
+  af: "Os estabelecimentos prisionais sujeitos à atividade correcional do juízo serão visitados a cada três meses.",
+  c: false,
+  lei: "Art. 13. Os estabelecimentos prisionais e outros destinados ao recolhimento de pessoas, sujeitos à atividade correcional do juízo, serão visitados uma vez por mês (art. 66, inciso VII, da LEP).",
+  exp: "A visita é MENSAL (uma vez por mês)." },
+
+{ id: "ncg15", d: "Normas da Corregedoria", ref: "NSCGJ, art. 15, I a III",
+  af: "Para o pessoal das serventias judiciais, cabe sindicância quando a falta puder levar a repreensão, suspensão ou multa, e processo administrativo quando puder levar a demissão ou cassação de aposentadoria.",
+  c: true,
+  lei: "I – Apuração preliminar: quando a infração não estiver suficientemente caracterizada ou definida a autoria (...); II – Sindicância: quando a falta disciplinar, por sua natureza, possa determinar as penas de repreensão, suspensão ou multa; III – Processo Administrativo: quando a falta disciplinar, por sua natureza, possa determinar as penas de demissão ou dispensa, demissão ou dispensa a bem do serviço público e cassação de aposentadoria.",
+  exp: "Correto. Mesma lógica do Estatuto (arts. 269 e 270)." },
+
+{ id: "ncg15b", d: "Normas da Corregedoria", ref: "NSCGJ, art. 15, § 6º",
+  af: "Os prazos dos procedimentos disciplinares das NSCGJ são contados em dias úteis e não se suspendem no fim do ano.",
+  c: false,
+  lei: "§ 6º. Os prazos relativos a procedimentos disciplinares serão contados em dias corridos e ficarão suspensos no período de 20 de dezembro a 20 de janeiro.",
+  exp: "São DIAS CORRIDOS e ficam SUSPENSOS de 20 de dezembro a 20 de janeiro." },
+
+{ id: "ncg17", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 17 e 18",
+  af: "Havendo proposta de demissão de servidor, os autos serão sempre redistribuídos à Corregedoria Geral para apreciação, mesmo que não haja recurso.",
+  c: true,
+  lei: "Art. 17 (...) Parágrafo único. Nos casos de proposta de demissão ou dispensa, demissão ou dispensa a bem do serviço público, ou cassação de aposentadoria, os autos serão sempre redistribuídos à Corregedoria Geral para apreciação, independentemente da não interposição de recurso. Art. 18. (...) o Corregedor Geral da Justiça poderá aplicar, originariamente, as sanções cabíveis e, enquanto não prescrita a infração, reexaminar, de ofício ou mediante provocação, decisões absolutórias ou de arquivamento.",
+  exp: "Correto." },
+
+{ id: "ncg27", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 27 e 27-A",
+  af: "Os servidores da justiça darão atendimento prioritário às pessoas com deficiência, aos idosos, às gestantes, às lactantes e às pessoas acompanhadas por crianças de colo.",
+  c: true,
+  lei: "Art. 27. Os servidores da justiça darão atendimento prioritário às pessoas portadoras de deficiência, aos idosos, às gestantes, às lactantes e às pessoas acompanhadas por crianças de colo, mediante garantia de lugar privilegiado em filas, distribuição de senhas (...). Art. 27-A. A prioridade (...) se aplica às advogadas públicas e privadas, promotoras e procuradoras do Ministério Público gestantes ou lactantes (...) desde que haja requerimento prévio (...).",
+  exp: "Correto. Para advogadas gestantes ou lactantes, a preferência nas audiências exige requerimento prévio." },
+
+{ id: "ncg29", d: "Normas da Corregedoria", ref: "NSCGJ, art. 29, §§ 1º e 2º",
+  af: "Nas comarcas com uma única vara e um único ofício de justiça, os serviços de distribuição e partidoria competem a esse ofício.",
+  c: true,
+  lei: "§ 1º Nas comarcas com mais de uma vara, haverá um ofício ou seção de distribuição judicial, ao qual incumbem os serviços de distribuição e partidoria, e, nos termos da lei, do arquivo geral. § 2º Nas comarcas em que existir uma única vara e um único ofício de justiça, a este competem as atribuições dos serviços de distribuição e partidoria.",
+  exp: "Correto." },
+
+{ id: "ncg49", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 49 e 51",
+  af: "O funcionário credenciado pode emprestar sua senha a outro servidor da mesma unidade, desde que comunique o escrivão.",
+  c: false,
+  lei: "Art. 49 (...) § 1º É vedado ao funcionário credenciado ceder a respectiva senha ou permitir que outrem, funcionário ou não, use-a para acessar indevidamente o sistema informatizado. (...) Art. 51. Os escrivães judiciais do serviço de distribuição e dos ofícios de justiça realizarão auditoria semanal no sistema (...).",
+  exp: "É VEDADO ceder a senha a qualquer pessoa, funcionário ou não. Os escrivães fazem auditoria SEMANAL no sistema." },
+
+{ id: "ncg54", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 54, § 2º, e 62",
+  af: "Não se admite a exclusão de parte do cadastro do processo no sistema; quando necessário, procede-se à sua baixa.",
+  c: true,
+  lei: "Art. 54 (...) § 2º Não será admitida exclusão de parte no processo, procedendo-se à sua baixa, quando necessário. | Art. 62. Quando a mesma parte estiver vinculada a processos que tramitam em outros ofícios de justiça, as eventuais retificações de seus dados não serão aplicadas aos feitos de outro juízo.",
+  exp: "Correto. E a retificação de dados não alcança feitos de outro juízo." },
+
+{ id: "ncg55", d: "Normas da Corregedoria", ref: "NSCGJ, art. 55, § 3º",
+  af: "Vítimas e testemunhas de processo criminal terão sua qualificação lançada no sistema, salvo se, alegando coação ou grave ameaça e após deferimento do juiz, pedirem para não ser identificadas.",
+  c: true,
+  lei: "§ 3º As vítimas identificadas na denúncia ou queixa, e também as testemunhas de processo criminal – sejam estas de acusação, defesa ou comuns –, terão suas qualificações lançadas no sistema informatizado oficial, exceto quando, ao darem conta de coação ou grave ameaça, após deferimento do juiz, pedirem para não haver identificação de seus dados de qualificação e endereço.",
+  exp: "Correto." },
+
+{ id: "ncg57", d: "Normas da Corregedoria", ref: "NSCGJ, art. 57",
+  af: "Nos ofícios de justiça, o controle da movimentação dos feitos pode ser feito pelo sistema oficial e, como complemento, por fichas individuais em papel.",
+  c: false,
+  lei: "Art. 57. Nos ofícios de justiça, o registro e controle da movimentação dos feitos realizar-se-ão exclusivamente pelo sistema informatizado oficial, vedadas a elaboração de fichário por nome de autor e a utilização de fichas individuais materializadas em papel ou constantes de outros sistemas informatizados.",
+  exp: "O controle é EXCLUSIVAMENTE pelo sistema oficial. São vedados fichário por nome de autor e fichas em papel ou em outros sistemas." },
+
+{ id: "ncg63", d: "Normas da Corregedoria", ref: "NSCGJ, art. 63",
+  af: "São livros obrigatórios dos ofícios de justiça em geral, entre outros, o de Visitas e Correições e o de Protocolo de Autos e Papéis em Geral.",
+  c: true,
+  lei: "Art. 63. Os ofícios de justiça em geral possuirão os seguintes livros: I - Visitas e Correições; II - Protocolo de Autos e Papéis em Geral; III – Revogado; IV - Registro de Feitos Administrativos (sindicâncias, procedimentos disciplinares, representações, etc.); V - Registro das decisões terminativas proferidas em feitos administrativos; VI - pertinentes à Corregedoria Permanente (...).",
+  exp: "Correto." },
+
+{ id: "ncg66", d: "Normas da Corregedoria", ref: "NSCGJ, art. 66",
+  af: "Os livros em geral, inclusive de folhas soltas, serão abertos, numerados, autenticados e encerrados pelo escrivão judicial, vedada a substituição de folhas.",
+  c: true,
+  lei: "Art. 66. Os livros em geral, inclusive de folhas soltas, serão abertos, numerados, autenticados e encerrados pelo escrivão judicial, sempre na mesma oportunidade, podendo ser utilizado, para este fim, processo mecânico de autenticação previamente aprovado pelo Juiz Corregedor Permanente, vedada a substituição de folhas.",
+  exp: "Correto." },
+
+{ id: "ncg69", d: "Normas da Corregedoria", ref: "NSCGJ, art. 69, § 3º",
+  af: "Se o sistema informatizado estiver indisponível, as cargas de autos serão registradas no Livro Protocolo de Autos e Papéis em Geral.",
+  c: true,
+  lei: "Art. 69. A carga e descarga de autos entre os usuários internos do sistema informatizado oficial serão feitas eletronicamente e controladas exclusivamente por intermédio do sistema (...). § 3º Em caso de indisponibilidade do sistema informatizado as cargas serão registradas no Livro Protocolo de Autos e Papéis em Geral (artigo 63, inciso II). Restabelecido o sistema, será feito o registro da carga no sistema para controle, anotando-se no livro.",
+  exp: "Correto." },
+
+{ id: "ncg72", d: "Normas da Corregedoria", ref: "NSCGJ, art. 72, §§ 1º e 6º",
+  af: "O registro da sentença no Livro Registro de Sentenças far-se-á em até 10 dias após a baixa dos autos em cartório.",
+  c: false,
+  lei: "§ 1º O registro previsto neste artigo far-se-á em até 5 (cinco) dias após a baixa dos autos em cartório pelo juiz. (...) § 6º As sentenças cadastradas no sistema informatizado oficial com assinatura digital ficam dispensadas da funcionalidade do registro, bem como da elaboração de livro próprio e da certidão prevista no § 5º deste artigo.",
+  exp: "O prazo é de até 5 DIAS. Sentença com assinatura digital no sistema dispensa o registro em livro." },
+
+{ id: "ncg74", d: "Normas da Corregedoria", ref: "NSCGJ, art. 74, § 2º",
+  af: "Os livros de cargas de autos e mandados podem ser inutilizados depois de revisados e decorridos 2 anos do último registro, mediante prévia autorização do Juiz Corregedor Permanente.",
+  c: true,
+  lei: "§ 2º Após revisados e decorridos 2 (dois) anos do último registro efetuado, os livros de cargas de autos e mandados, desde que reputados sem utilidade para conservação em arquivo pelo escrivão judicial, poderão ser inutilizados, mediante prévia autorização do Juiz Corregedor Permanente.",
+  exp: "Correto." },
+
+{ id: "ncg78", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 78 e 79",
+  af: "Os ofícios expedidos e recebidos são conservados pelo prazo de 5 anos antes de poderem ser inutilizados.",
+  c: false,
+  lei: "Art. 78. Os ofícios e mensagens eletrônicas expedidos e recebidos (...) serão conservadas pelo prazo de 01 (um) ano, a partir da data de expedição ou do recebimento pelo ofício de justiça. (...) Art. 79. As guias de recolhimento de diligências do oficial de justiça serão conservadas pelo prazo mínimo de dois anos contados do arquivamento (...).",
+  exp: "Ofícios: 1 ANO. Guias de diligência do oficial de justiça: no mínimo 2 anos." },
+
+{ id: "ncg80", d: "Normas da Corregedoria", ref: "NSCGJ, art. 80",
+  af: "Na escrituração, os numerais serão expressos em algarismos e por extenso, e a escrita manual será feita com tinta preta ou azul, indelével.",
+  c: true,
+  lei: "Art. 80 (...) I - o papel utilizado terá fundo inteiramente branco ou ser reciclado (...); II - a escrituração será sempre feita em vernáculo, preferencialmente por meio eletrônico, com tinta preta ou azul, indelével; III - os numerais serão expressos em algarismos e por extenso; IV - os espaços em branco e não aproveitados, nos livros e autos de processo, serão inutilizados; V - as assinaturas deverão ser colhidas imediatamente após a lavratura do ato ou termo (...).",
+  exp: "Correto." },
+
+{ id: "ncg82", d: "Normas da Corregedoria", ref: "NSCGJ, art. 82",
+  af: "Para agilizar o serviço, admite-se o uso de chancela que reproduza mecanicamente a assinatura do juiz em mandados de rotina.",
+  c: false,
+  lei: "Art. 82. Na escrituração é vedada: I - a utilização de borracha ou raspagem por outro meio mecânico, bem como a uso de corretivo, detergente ou outro meio químico de correção; II - a assinatura de atos ou termos em branco, total ou parcialmente; III - a utilização de abreviaturas (...); IV - a utilização de chancela, ou de qualquer recurso que propicie a reprodução mecânica da assinatura do juiz.",
+  exp: "É VEDADA a chancela ou qualquer reprodução mecânica da assinatura do juiz. Também são vedados corretivo, borracha e assinatura em branco." },
+
+{ id: "ncg81", d: "Normas da Corregedoria", ref: "NSCGJ, art. 81",
+  af: "Na escrituração devem ser evitadas anotações de “sem efeito”, mas, quando estritamente necessárias, serão datadas e autenticadas com a assinatura de quem as lançou.",
+  c: true,
+  lei: "Art. 81. Na escrituração serão evitadas as seguintes práticas: I - entrelinhas, erros de digitação, omissões, emendas, rasuras ou borrões; II - anotações de “sem efeito”; III - anotações a lápis nos livros e autos de processo, mesmo que a título provisório. § 1º Na ocorrência das irregularidades previstas no inciso I, far-se-ão as devidas ressalvas, antes da subscrição do ato (...). § 2º As anotações previstas no inciso II, quando estritamente necessárias, sempre serão datadas e autenticadas com a assinatura de quem as haja lançado nos autos.",
+  exp: "Correto. Atenção: o art. 81 lista práticas a serem EVITADAS; o art. 82 lista as VEDADAS." },
+
+{ id: "ncg85", d: "Normas da Corregedoria", ref: "NSCGJ, art. 85, § 1º",
+  af: "O ofício dirigido a um Delegado de Polícia pode ser assinado pelo escrivão, por ordem do juiz.",
+  c: false,
+  lei: "Art. 85. Os mandados, as cartas postais, os ofícios gerais de comunicação, expedidos em cumprimento de ato judicial, em não havendo determinação do juiz em sentido contrário, serão assinados pelos escrivães, declarando que o fazem por ordem do juiz. § 1º A subscrição do juiz é obrigatória quando: I - a lei ou estas Normas de Serviço expressamente o exigirem (por exemplo, (...) prisão, contramandado de prisão e alvará de soltura, alvarás em geral, levantamento de depósito judicial (...)); II - houver determinação de desconto de pensão alimentícia; III - os documentos ou papéis forem dirigidos a autoridades (por exemplo, membros do Poder Judiciário, do Ministério Público e do Poder Legislativo; chefe do Poder Executivo; Delegados de Polícia; (...)).",
+  exp: "Documento dirigido a AUTORIDADE (Delegado de Polícia, por exemplo) exige assinatura do JUIZ. Também exigem: alvarás, ordens de prisão e desconto de pensão." },
+
+{ id: "ncg87", d: "Normas da Corregedoria", ref: "NSCGJ, art. 87",
+  af: "Ao receber a petição inicial ou a denúncia, o ofício de justiça providenciará a autuação em 24 horas, dispensada a certidão da autuação dentro dos autos.",
+  c: true,
+  lei: "Art. 87. Ao receber a petição inicial ou a denúncia, o ofício de justiça providenciará, em 24 (vinte e quatro) horas, a autuação, nela afixando a etiqueta que, gerada pelo sistema informatizado e oriunda do distribuidor, atribui número ao processo (...). Parágrafo único. É dispensada a lavratura de certidão, no interior dos autos, da autuação e do registro do processo.",
+  exp: "Correto." },
+
+{ id: "ncg89", d: "Normas da Corregedoria", ref: "NSCGJ, art. 89",
+  af: "Os autos de processos físicos não excederão 300 folhas em cada volume.",
+  c: false,
+  lei: "Art. 89. Os autos de processos não excederão de 200 (duzentas) folhas em cada volume, salvo determinação judicial expressa em contrário ou para manter peça processual com seus documentos anexos, podendo, nestes casos, ser encerrado com mais ou menos folhas.",
+  exp: "O limite é de 200 FOLHAS por volume (tema cobrado várias vezes)." },
+
+{ id: "ncg91", d: "Normas da Corregedoria", ref: "NSCGJ, art. 91",
+  af: "Em caso de erro na numeração das folhas dos autos, certifica-se a ocorrência, sendo vedada a renumeração; havendo numeração repetida, acrescenta-se uma letra (188-a, 188-b...).",
+  c: true,
+  lei: "Art. 91. Os escrivães judiciais ou, sob sua supervisão, os escreventes zelarão pela correta numeração das folhas dos autos. § 1º Em caso de erro na numeração, certificar-se-á a ocorrência, sendo vedada a renumeração. § 2º Na hipótese de numeração repetida, acrescentar-se-á apenas uma letra do alfabeto, em sequência (188-a, 188-b, 188-c etc.), certificando-se.",
+  exp: "Correto." },
+
+{ id: "ncg92", d: "Normas da Corregedoria", ref: "NSCGJ, art. 92",
+  af: "O ofício de justiça pode receber diretamente, sem passar pelo protocolo, petição de juntada de procuração ou substabelecimento apresentada pelo interessado.",
+  c: true,
+  lei: "Art. 92. É vedado aos ofícios de justiça receber e juntar petições que não tenham sido encaminhadas pelo setor de protocolo, salvo: I – quanto às petições de requerimento de juntada de procuração ou de substabelecimento apresentadas pelo interessado diretamente ao ofício de justiça, caso em que o termo de juntada mencionará esta circunstância; II – quando houver, em cada caso concreto, expressa decisão fundamentada do juiz do feito dispensando o protocolo no setor próprio.",
+  exp: "Correto. É uma das duas exceções à regra do protocolo." },
+
+{ id: "ncg93", d: "Normas da Corregedoria", ref: "NSCGJ, art. 93, §§ 1º e 2º",
+  af: "Para agilizar o serviço, o termo de juntada pode ser lançado na própria petição a ser encartada nos autos.",
+  c: false,
+  lei: "Art. 93. Por ocasião da juntada de petições e documentos (...), lavrar-se-á o respectivo termo de juntada. § 1º Para a juntada, na mesma oportunidade, de duas ou mais petições ou documentos, será confeccionado um único termo de juntada com a relação das peças. § 2º É vedado o lançamento do termo de juntada na própria petição o documento a serem encartados aos autos.",
+  exp: "É VEDADO lançar o termo de juntada na própria petição. Para várias peças juntadas ao mesmo tempo, faz-se UM único termo." },
+
+{ id: "ncg96", d: "Normas da Corregedoria", ref: "NSCGJ, art. 96",
+  af: "Ao constatar cotas marginais ou interlineares nos autos, o serventuário deve comunicar imediatamente o juiz.",
+  c: true,
+  lei: "Art. 96. São vedados o lançamento de cotas marginais ou interlineares nos autos, a prática de sublinhar palavras à tinta ou a lápis, ou o emprego de expressões injuriosas nos escritos apresentados no processo, incumbindo ao serventuário, ao constatar a irregularidade, comunicá-la imediatamente ao juiz.",
+  exp: "Correto. No CPC (art. 202), o juiz manda riscar as cotas e aplica multa de metade do salário-mínimo." },
+
+{ id: "ncg97", d: "Normas da Corregedoria", ref: "NSCGJ, art. 97",
+  af: "Pelas NSCGJ, a conclusão dos autos deve ser feita em 1 dia e os atos processuais executados em 5 dias.",
+  c: true,
+  lei: "Art. 97. Deverá ser feita conclusão dos autos no prazo de 1 (um) dia e executados os atos processuais no prazo de 5 (cinco) dias. § 1º Os juízes atenderão, preferencialmente, à ordem cronológica de conclusão para proferir sentença ou acórdão. § 2º O escrivão atenderá, preferencialmente, a ordem cronológica de recebimento para publicação e efetivação dos pronunciamentos judiciais.",
+  exp: "Correto. Tema cobrado em 2007, 2010, 2012, 2015 e 2021." },
+
+{ id: "ncg98", d: "Normas da Corregedoria", ref: "NSCGJ, art. 98, §§ 1º e 5º",
+  af: "A conclusão dos autos ao juiz será efetuada diariamente, limitada a um número máximo de processos por dia.",
+  c: false,
+  lei: "§ 1º São vedados, sob qualquer pretexto, termos de conclusão ou de vista sem data ou, ainda, a permanência dos autos em cartório depois de assinados os respectivos termos. (...) § 5º A conclusão dos autos ao juiz será efetuada diariamente, sem limitação de número.",
+  exp: "A conclusão é diária e SEM LIMITAÇÃO DE NÚMERO. São vedados termos de conclusão ou de vista sem data." },
+
+{ id: "ncg99", d: "Normas da Corregedoria", ref: "NSCGJ, art. 99",
+  af: "Nenhum processo ficará sem andamento por mais de 30 dias aguardando diligência; decorrido o prazo, o ofício reiterará a diligência uma única vez e, se não atendida, abrirá conclusão ao juiz.",
+  c: true,
+  lei: "Art. 99. Nenhum processo permanecerá paralisado em cartório, além dos prazos legais ou fixados, ou ficará sem andamento por mais de 30 (trinta) dias, no aguardo de diligências (...). Parágrafo único. Decorrido o prazo de 30 (trinta) dias, o ofício de justiça reiterará a diligência uma única vez e, em caso de não atendimento, será aberta conclusão ao juiz, para as providências cabíveis.",
+  exp: "Correto." },
+
+{ id: "ncg104", d: "Normas da Corregedoria", ref: "NSCGJ, art. 104",
+  af: "As certidões serão expedidas em 5 dias, e a certidão de processo em segredo de justiça depende de despacho do juiz, salvo se requerida por parte ou procurador habilitado.",
+  c: true,
+  lei: "Art. 104. A expedição de certidões em breve relatório ou de inteiro teor compete exclusivamente aos ofícios de justiça. (...) § 2º As certidões serão expedidas no prazo de 5 (cinco) dias, contados da data do recebimento do respectivo pedido (...). § 5º A expedição de certidão de processos que correm em segredo de justiça dependerá de despacho do juiz competente, exceto se requerida por parte ou procurador regularmente habilitado nos autos.",
+  exp: "Correto. Tema cobrado em quase todas as provas (2006 a 2024)." },
+
+{ id: "ncg104a", d: "Normas da Corregedoria", ref: "NSCGJ, art. 104-A, § 1º",
+  af: "A certidão de teor de decisão judicial para fins de protesto extrajudicial será expedida no prazo de 5 dias.",
+  c: false,
+  lei: "Art. 104-A. A requerimento escrito do credor, tratando-se de decisão judicial, transitada em julgado, que reconheça a existência de obrigação de pagar quantia certa ou alimentos, expedir-se-á certidão de teor da decisão para fins de protesto extrajudicial (...). § 1º As certidões serão expedidas no prazo de três (03) dias, contados da data do recebimento do respectivo pedido pelo ofício de justiça. (...) § 3º Em todos os casos, a certidão será levada a protesto sob a responsabilidade do credor.",
+  exp: "Para PROTESTO o prazo é de 3 DIAS. O prazo geral das certidões (art. 104) é que é de 5 dias." },
+
+{ id: "ncg132", d: "Normas da Corregedoria", ref: "NSCGJ, art. 132",
+  af: "O servidor do ofício de justiça pode informar por telefone o andamento do processo ao advogado constituído nos autos.",
+  c: false,
+  lei: "Art. 132. A intimação dos atos e termos do processo ou de expediente administrativo far-se-á, sempre que possível, por meio eletrônico e mediante publicação no Diário da Justiça Eletrônico. Parágrafo único. É vedado ao servidor dos ofícios de justiça prestar informações por telefone aos advogados, aos membros do Ministério Público, às partes e ao público em geral acerca dos atos e termos do processo.",
+  exp: "É VEDADO prestar informações por telefone sobre atos e termos do processo, inclusive a advogados." },
+
+{ id: "ncg133", d: "Normas da Corregedoria", ref: "NSCGJ, art. 133",
+  af: "Despachos, decisões interlocutórias e sentenças devem ser encaminhados à publicação no DJE em até 3 dias, a contar da devolução dos autos em cartório.",
+  c: true,
+  lei: "Art. 133. Os despachos, decisões interlocutórias e sentenças devem ser encaminhados à publicação no Diário da Justiça Eletrônico, dentro do prazo máximo de 3 (três) dias, a contar da devolução dos autos em cartório. Parágrafo único. O mesmo prazo deverá ser observado para fins de cumprimento da intimação por meio eletrônico.",
+  exp: "Correto." },
+
+{ id: "ncg135", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 135 e 138",
+  af: "Nas intimações pela imprensa, decisões interlocutórias e sentenças são publicadas apenas na parte dispositiva e, em processos sob segredo de justiça, constam apenas as iniciais das partes.",
+  c: true,
+  lei: "Art. 135. Nas intimações pela imprensa: (...) II - as decisões interlocutórias e sentenças serão publicadas somente na sua parte dispositiva; os atos ordinatórios e despachos de mero expediente serão transcritos ou resumidos (...). Art. 138. Da publicação no Diário da Justiça Eletrônico a respeito de processos sujeitos ao segredo de justiça constarão as iniciais das partes.",
+  exp: "Correto." },
+
+{ id: "ncg137", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 136 e 137",
+  af: "Havendo erro ou omissão de elemento indispensável na publicação, a retificação e nova publicação dependem de reclamação da parte.",
+  c: false,
+  lei: "Art. 136. A publicação omissa em relação aos requisitos constantes dos arts. 134 e 135 e que cause efetivo prejuízo a qualquer das partes será considerada nula. Art. 137. Quando ocorrer erro ou omissão de elemento indispensável na publicação, independentemente de despacho ou de reclamação da parte, proceder-se-á imediatamente à retificação e nova publicação, encartando-se aos autos cópia do ato incorretamente publicado.",
+  exp: "A republicação é feita IMEDIATAMENTE, independentemente de despacho ou de reclamação da parte." },
+
+{ id: "ncg143", d: "Normas da Corregedoria", ref: "NSCGJ, art. 143",
+  af: "A designação de audiências pode ser delegada ao escrivão em qualquer vara, para agilizar a pauta.",
+  c: false,
+  lei: "Art. 143. A designação de audiências é atribuição exclusiva e indelegável do juiz, salvo nos juizados especiais.",
+  exp: "É atribuição EXCLUSIVA e INDELEGÁVEL do juiz, salvo nos juizados especiais." },
+
+{ id: "ncg148", d: "Normas da Corregedoria", ref: "NSCGJ, art. 148",
+  af: "O servidor encarregado das audiências examinará os processos 10 dias antes das datas designadas, para verificar se as intimações e requisições foram providenciadas.",
+  c: true,
+  lei: "Art. 148. O servidor encarregado dos registros e audiências examinará, 10 (dez) dias antes das datas designadas para audiências, os respectivos processos, para verificar se todas as providências de intimação ou requisição de partes e testemunhas foram tomadas (...).",
+  exp: "Correto." },
+
+{ id: "ncg152", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 150 a 153",
+  af: "Os depoimentos registrados em meio audiovisual serão sempre transcritos pelo ofício de justiça.",
+  c: false,
+  lei: "Art. 150. As audiências serão gravadas diretamente no sistema informatizado oficial e armazenadas em ambiente de nuvem (...). Art. 152. Os depoimentos registrados em meio audiovisual não serão objeto de transcrição. Parágrafo único. A transcrição dos depoimentos gravados em audiência somente será feita pelo respectivo ofício se houver interposição de recurso e for impossível o envio da documentação eletrônica.",
+  exp: "Em regra, NÃO são transcritos. Só se houver recurso E for impossível enviar a gravação eletronicamente." },
+
+{ id: "ncg157", d: "Normas da Corregedoria", ref: "NSCGJ, art. 157",
+  af: "O acesso a autos que não estejam em segredo de justiça é assegurado, mesmo sem procuração, a advogados, estagiários e ao público em geral, no balcão, vedado o desencarte de peças para reprodução.",
+  c: true,
+  lei: "Art. 157. O acesso aos autos judiciais e administrativos de processos em andamento ou findos, mesmo sem procuração, quando não estejam sujeitos a segredo de justiça, é assegurado aos advogados, estagiários de Direito e ao público em geral, por meio do exame em balcão do ofício de justiça (...), podendo ser tomados apontamentos, solicitadas cópias reprográficas, bem como utilizado escâner portátil ou máquina fotográfica, vedado, nestas hipóteses, o desencarte das peças processuais para reprodução.",
+  exp: "Correto." },
+
+{ id: "ncg158", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 158 e 165",
+  af: "O advogado sem procuração pode retirar autos que não estejam em segredo de justiça para cópia, em carga rápida, pelo período de 2 horas.",
+  c: false,
+  lei: "Art. 158. (...) poderão os advogados ou estagiários de Direito, regularmente inscritos na OAB, que não tenham sido constituídos procuradores de quaisquer das partes, retirar os autos para cópia, pelo período de 1 (uma) hora, mediante controle de movimentação física (...). Art. 165. A carga rápida dos autos será concedida (...) pelo período de uma hora (...): I - os requerimentos serão recepcionados e atendidos, desde que formulados até 1 (uma) hora antes do término do expediente forense;",
+  exp: "A carga rápida é de 1 HORA, e o pedido deve ser feito até 1 hora antes do fim do expediente." },
+
+{ id: "ncg160", d: "Normas da Corregedoria", ref: "NSCGJ, art. 160",
+  af: "É vedado o acesso a autos de processos em segredo de justiça por estagiários não inscritos ou com inscrição vencida na OAB.",
+  c: true,
+  lei: "Art. 160. Na hipótese de os processos correrem em segredo de justiça, o seu exame, em cartório, será restrito às partes e a seus procuradores devidamente constituídos. § 1º As entidades que reconhecidamente prestam serviços de assistência judiciária poderão, por intermédio de advogado com procuração nos autos, autorizar a consulta (...) pelos acadêmicos de Direito não inscritos na OAB. (...) § 2º É vedado o acesso a autos de processos que correm em segredo de justiça por estagiários não inscritos ou com inscrição vencida na OAB.",
+  exp: "Correto. Exceção: acadêmicos de entidades de assistência judiciária, autorizados por advogado com procuração." },
+
+{ id: "ncg161", d: "Normas da Corregedoria", ref: "NSCGJ, art. 161",
+  af: "Em processos findos que não estejam em segredo de justiça, o advogado pode fazer carga dos autos mesmo sem procuração, pelo prazo de 10 dias.",
+  c: true,
+  lei: "Art. 161. A carga de autos judiciais e administrativos em andamento no cartório é reservada unicamente a advogados ou estagiários de Direito regularmente inscritos na OAB, constituídos procuradores de alguma das partes, ressalvado, nos processos findos e que não estejam sujeitos a segredo de justiça, a carga por advogado mesmo sem procuração, pelo prazo de 10 (dez) dias.",
+  exp: "Correto." },
+
+{ id: "ncg164", d: "Normas da Corregedoria", ref: "NSCGJ, art. 164, § 2º",
+  af: "Na fluência de prazo comum, cada procurador pode retirar os autos para obter cópias, independentemente de ajuste, pelo prazo de 2 a 6 horas.",
+  c: true,
+  lei: "§ 2º Na fluência de prazo comum, só em conjunto ou mediante prévio ajuste por petição nos autos os procuradores das partes ou seus prepostos retirarão os autos, ressalvada a obtenção de cópias para a qual cada procurador ou preposto poderá retirá-los pelo prazo de 2 (duas) a 6 (seis) horas, mediante carga, independentemente de ajuste, observado o término do expediente forense.",
+  exp: "Correto. Mesma regra do CPC (art. 107, § 3º)." },
+
+{ id: "ncg166", d: "Normas da Corregedoria", ref: "NSCGJ, art. 166",
+  af: "Para controle da carga rápida, o ofício de justiça pode reter a carteira da OAB do advogado até a devolução dos autos.",
+  c: false,
+  lei: "Art. 166. É vedada a retenção do documento de identificação do advogado ou do estagiário de Direito no ofício de justiça, para a finalidade de controle de carga de autos, em qualquer modalidade ou circunstância.",
+  exp: "É VEDADA a retenção do documento do advogado ou do estagiário, em qualquer modalidade ou circunstância." },
+
+{ id: "ncg167", d: "Normas da Corregedoria", ref: "NSCGJ, art. 167",
+  af: "Se, intimado pessoalmente, o advogado não devolver os autos em 3 dias, perderá o direito à vista fora de cartório e incorrerá em multa de metade do salário mínimo.",
+  c: true,
+  lei: "Art. 167. O advogado deve restituir, no prazo legal, os autos que tiver retirado do ofício de justiça. Se intimado pessoalmente o advogado não devolver os autos no prazo de 3 (três) dias, perderá o direito à vista fora de cartório e incorrerá em multa correspondente à metade do salário mínimo. § 1º Verificada a falta, o juiz comunicará o fato à seção local da Ordem dos Advogados do Brasil (...).",
+  exp: "Correto." },
+
+{ id: "ncg171", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 170 e 171",
+  af: "Quando o documento desentranhado não for substituído por cópia, coloca-se uma folha em branco no lugar, vedada a renumeração das folhas do processo.",
+  c: true,
+  lei: "Art. 170. O desentranhamento de peças e de documentos, facultada a substituição por cópia simples, poderá ser requerido pelo interessado ou determinado de ofício pelo juiz. Art. 171. Não haverá substituição (...) quando, a critério do juiz do processo, referirem-se a: I - manifestação intempestiva do peticionário; II - documentação evidentemente estranha aos autos; III - documentos que não tenham servido de base (...). § 1º Nestas hipóteses, será colocada uma folha em branco no lugar das peças ou documentos desentranhados (...), vedada a renumeração das folhas do processo.",
+  exp: "Correto." },
+
+{ id: "ncg172", d: "Normas da Corregedoria", ref: "NSCGJ, art. 172",
+  af: "Deferido o desentranhamento, o interessado será intimado a retirar a documentação em 15 dias, e as peças podem ser grampeadas na contracapa dos autos até a retirada.",
+  c: false,
+  lei: "Art. 172. (...) III - intimar o interessado a retirar a documentação no prazo de 5 (cinco) dias, se outro não for assinalado pelo Juiz. (...) § 2º As peças desentranhadas dos autos, enquanto não entregues ao interessado, serão guardadas em classificador próprio, sendo vedado grampeá-las na contracapa dos autos.",
+  exp: "O prazo é de 5 DIAS e é VEDADO grampear as peças na contracapa: elas ficam em classificador próprio." },
+
+{ id: "ncg174", d: "Normas da Corregedoria", ref: "NSCGJ, art. 174",
+  af: "Transitada em julgado a sentença, os objetos anexados às manifestações processuais serão devolvidos, mediante solicitação ou intimação para retirada em até 30 dias, sob pena de destruição.",
+  c: true,
+  lei: "Art. 174. Transitada em julgado a sentença, os objetos anexados às manifestações processuais serão devolvidos às partes ou seus procuradores, mediante solicitação ou intimação para retirada em até 30 (trinta) dias, sob pena de destruição.",
+  exp: "Correto." },
+
+{ id: "ncg177", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 176 e 177",
+  af: "Após a publicação da decisão que determinou o arquivamento, os processos permanecem no ofício de justiça por 10 dias antes de serem arquivados.",
+  c: false,
+  lei: "Art. 176. Nenhum processo será arquivado sem sentença definitiva ou decisão terminativa (...). Art. 177. Após a publicação da decisão que determinou o arquivamento, os processos permanecerão no ofício de justiça por 30 (trinta) dias, findo o prazo, serão arquivados após realizadas as anotações e atos necessários no sistema informatizado oficial e no sistema da empresa terceirizada (SGDAU).",
+  exp: "Permanecem por 30 DIAS. E nenhum processo é arquivado sem sentença definitiva ou decisão terminativa." },
+
+{ id: "ncg179", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 179 e 180",
+  af: "É autorizado o arquivo provisório de processos em fase de execução de título judicial há mais de 1 ano sem localização de bens do executado, e é vedado às partes e advogados consultar processos nos depósitos do Arquivo Terceirizado.",
+  c: true,
+  lei: "Art. 179. É autorizado o arquivo provisório de processos que se encontrem em fase de execução de título judicial há mais de 01 (um) ano e nos quais não tenham sido localizados bens do executado, mantido o nome das partes no Cartório Distribuidor. (...) Art. 180. Fica vedada às partes e advogados a consulta ou retirada de processos nos depósitos do Arquivo Terceirizado.",
+  exp: "Correto." },
+
+{ id: "ncg181", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 181, 188 e 189",
+  af: "Desarquivado o processo, o interessado é intimado de que tem 30 dias para se manifestar, sob pena de os autos voltarem ao arquivo; a reiteração da requisição de desarquivamento só pode ser feita após 10 dias úteis.",
+  c: true,
+  lei: "Art. 181 (...) Parágrafo único. O interessado no desarquivamento será intimado (...) da chegada dos autos ao cartório e do prazo de 30 (trinta) dias para manifestação (...). Art. 188 (...) Parágrafo único. Na ausência da guia de recolhimento, o advogado (...) será intimado a recolher as respectivas custas, no prazo de 05 (cinco) dias (...). Art. 189 (...) § 4º Não será permitida a reiteração de requisição antes de decorridos 10 (dez) dias úteis contados da data de requisição no sistema da empresa terceirizada (SGDAU).",
+  exp: "Correto. E sem a guia da taxa o advogado tem 5 dias para recolher." },
+
+{ id: "ncg1191", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 1.191 e 1.193",
+  af: "O titular do certificado digital pode alegar uso indevido da sua chave privada por terceiro para invalidar o ato praticado.",
+  c: false,
+  lei: "Art. 1.191. O acesso ao sistema de processamento eletrônico será feito: I - no sítio eletrônico do Tribunal (...) mediante uso de certificação digital (ICPBrasil – Padrão A3); (...) Art. 1.193. É de exclusiva responsabilidade do titular de certificação digital o uso e sigilo da chave privada da sua identidade digital, não sendo oponível, em nenhuma hipótese, alegação de seu uso indevido.",
+  exp: "A alegação de uso indevido NÃO é oponível em nenhuma hipótese. A responsabilidade é exclusiva do titular." },
+
+{ id: "ncg1195", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 1.192, § 3º, e 1.195",
+  af: "No processo eletrônico, é considerada original a versão armazenada no servidor do Tribunal de Justiça, enquanto o processo estiver em tramitação ou arquivado.",
+  c: true,
+  lei: "Art. 1.192 (...) § 3º Fazem a mesma prova que os originais as reproduções digitalizadas de qualquer documento, público ou particular, quando juntados aos autos pelos órgãos da Justiça (...) e por advogados públicos ou privados, ressalvada a alegação motivada e fundamentada de adulteração (...). Art. 1.195. Será considerada original a versão armazenada no servidor do Tribunal de Justiça do Estado de São Paulo, enquanto o processo estiver em tramitação ou arquivado.",
+  exp: "Correto." },
+
+{ id: "ncg1198", d: "Normas da Corregedoria", ref: "NSCGJ, art. 1.198",
+  af: "Petições eletrônicas recebidas em dia sem expediente forense são consideradas protocoladas no primeiro dia útil seguinte.",
+  c: true,
+  lei: "Art. 1.198. Os atos processuais das partes consideram-se realizados no dia e na hora de seu recebimento no sistema (...). § 1º A petição será considerada tempestiva quando recebida até as 24 (vinte e quatro horas) do último dia do prazo, considerada a hora oficial de Brasília. § 2º Considera-se prorrogado o prazo até as 24 (vinte e quatro) horas do primeiro dia útil subsequente ao vencimento quando este ocorrer em dia sem expediente forense. § 3º As petições recebidas em dias sem expediente forense serão consideradas protocoladas no primeiro dia útil seguinte.",
+  exp: "Correto." },
+
+{ id: "ncg1205", d: "Normas da Corregedoria", ref: "NSCGJ, art. 1.205",
+  af: "Pelas NSCGJ, a indisponibilidade do sistema ocorrida entre 0h e 6h de dia de expediente prorroga o prazo que vence nesse dia.",
+  c: false,
+  lei: "Art. 1.205. (...) I - prorroga-se, automaticamente, para o primeiro dia útil seguinte à solução do problema, o termo final para a prática de ato processual sujeito a prazo que vencer no dia da ocorrência da indisponibilidade, desde que ela; a) seja superior a 60 (sessenta) minutos, ininterruptos ou não, se ocorrida entre as 6h00 e 23h00; b) ocorra entre as 23h e 24h. (...) § 1º As indisponibilidades ocorridas entre a 0h00 e às 6h00 dos dias de expediente forense e as ocorridas em feriados e finais de semana, a qualquer hora, não produzirão o efeito do inciso I deste artigo.",
+  exp: "Entre 0h e 6h NÃO prorroga. Prorroga: mais de 60 min entre 6h e 23h, ou qualquer período entre 23h e 24h. Cuidado: no eproc (Res. 963) a janela é 12h–23h!" },
+
+{ id: "ncg1205b", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 1.205-A e 1.205-B",
+  af: "A indisponibilidade severa (mais de 3 horas entre 9h e 19h em dia útil) por dois ou mais dias consecutivos suspende automaticamente os prazos a partir do segundo dia.",
+  c: true,
+  lei: "Art. 1.205-A. Na hipótese de \"indisponibilidade severa\" a indisponibilidade, lentidão ou intermitência superior a 3 (três) horas, ininterruptas ou não, no período entre 9h00 e 19h00, em dias úteis (...). Art. 1.205-B. A indisponibilidade severa por dois ou mais dias consecutivos implica, nos feitos digitais (...), suspensão automática dos prazos processuais a partir do segundo dia de indisponibilidade. (...) § 3º - A suspensão dos prazos processuais na forma deste artigo não prejudica a realização de audiências ou outros atos processuais.",
+  exp: "Correto. A suspensão não impede audiências." },
+
+{ id: "ncg1207", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 1.207 e 1.258, § 2º",
+  af: "Documentos em papel digitalizados e juntados aos autos digitais, como nos ‘alimentos de balcão’, ficam no ofício por 45 dias e depois são inutilizados.",
+  c: true,
+  lei: "Art. 1.207 (...) § 1º Após a digitalização, a petição física e os documentos serão devolvidos ao ofício de justiça, onde aguardará, pelo prazo de 45 (quarenta e cinco) dias, a retirada pelo autor, findo o qual serão inutilizados. | Art. 1.258 (...) § 2º Depois de digitalizados e juntados aos autos digitais, serão mantidos no ofício de justiça, pelo prazo de 45 (quarenta e cinco) dias, findos os quais, salvo determinação do juiz do feito em sentido contrário, serão inutilizados e encaminhados à reciclagem (...).",
+  exp: "Correto. O número que se repete no processo eletrônico é 45 DIAS." },
+
+{ id: "ncg1214", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 1.212, § 3º, e 1.214",
+  af: "Embargos à execução, embargos de terceiro, cumprimento de sentença e restauração de autos tramitam em formato digital, com peticionamento eletrônico obrigatório, ainda que o processo principal seja físico.",
+  c: true,
+  lei: "Art. 1.212 (...) § 3º Em nenhuma hipótese será recebida a petição inicial em papel, quando indeferida sua distribuição. (...) Art. 1.214. Os embargos à execução e de terceiros, o cumprimento de sentença e a restauração de autos estão sujeitos, independentemente do meio de tramitação do processo principal, ao peticionamento eletrônico obrigatório e tramitarão no formato digital.",
+  exp: "Correto." },
+
+{ id: "ncg1220", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 1.220 e 1.221",
+  af: "Se um processo eletrônico for materializado, passam a ser admitidas petições em papel; retomada a tramitação eletrônica, as petições em papel continuam sendo aceitas.",
+  c: false,
+  lei: "Art. 1.220. As petições intermediárias serão apresentadas pelo peticionamento eletrônico e encaminhadas diretamente ao ofício de justiça correspondente. Parágrafo único. Na hipótese de materialização do processo, cuja tramitação era em meio eletrônico, passarão a ser admitidas petições em meio físico. Retomada a tramitação no meio eletrônico, não mais serão admitidas petições em meio físico. Art. 1.221. (...) os Setores de Protocolo (...) não poderão receber petições em papel dirigidas aos processos que tramitam eletronicamente.",
+  exp: "Retomada a tramitação eletrônica, NÃO se admitem mais petições em papel." },
+
+{ id: "ncg1224", d: "Normas da Corregedoria", ref: "NSCGJ, art. 1.224",
+  af: "Advogados, defensores e membros do MP não vinculados ao processo, previamente identificados, podem acessar todos os atos do processo eletrônico, salvo nos casos de sigilo ou segredo de justiça.",
+  c: true,
+  lei: "Art. 1.224. É livre a consulta, no sítio do Tribunal (...), às movimentações processuais, inteiro teor das decisões, sentenças, votos, acórdãos e aos mandados de prisão registrados no BNMP. § 1º O advogado, o defensor público, as partes e o membro do Ministério Público, cadastrados e habilitados nos autos, terão acesso a todo o conteúdo do processo eletrônico. § 2º Os advogados, defensores públicos, procuradores e membros do Ministério Público, não vinculados a processo, previamente identificados, poderão acessar todos os atos e documentos processuais armazenados, salvo nos casos de processos em sigilo ou segredo de justiça.",
+  exp: "Correto. Tema cobrado em 2017, 2018, 2021 e 2023." },
+
+{ id: "ncg1225", d: "Normas da Corregedoria", ref: "NSCGJ, art. 1.225, §§ 2º e 3º",
+  af: "A indicação de segredo de justiça feita pelo advogado só passa a valer depois de confirmada pelo juiz.",
+  c: false,
+  lei: "§ 2° A indicação implica impossibilidade de consulta dos autos por quem não seja parte no processo, nos termos da legislação específica, e é presumida válida, até decisão judicial em sentido contrário, de ofício ou a requerimento da parte. § 3º A indicação proveniente do advogado ou procurador será submetida à imediata análise pelo juiz.",
+  exp: "A indicação é PRESUMIDA VÁLIDA até decisão judicial em contrário; ela é submetida à imediata análise do juiz, mas já produz efeitos." },
+
+{ id: "ncg1226a", d: "Normas da Corregedoria", ref: "NSCGJ, art. 1.226-A",
+  af: "A senha de acesso à íntegra de processo digital sem segredo de justiça fornecida a terceiro interessado vale por 48 horas.",
+  c: false,
+  lei: "Art. 1.226-A. O acesso à integra dos processos digitais que não tramitem sob segredo de justiça a terceiro interessado será franqueado mediante uso de senha pessoal e intransferível, disponibilizada para utilização pelo período de 24 (vinte e quatro) horas após a sua emissão.",
+  exp: "A senha vale por 24 HORAS e é pessoal e intransferível." },
+
+{ id: "ncg1240", d: "Normas da Corregedoria", ref: "NSCGJ, art. 1.240",
+  af: "Nos autos digitais são dispensados os termos de conclusão e de vista, sendo gerada movimentação específica que identifica a data da remessa.",
+  c: true,
+  lei: "Art. 1.240. São dispensados os termos de conclusão e de vista nos autos digitais. Parágrafo único. Será gerada a movimentação específica no momento do encaminhamento à fila de trabalho, de modo a permitir a identificação inequívoca da data da remessa ao juiz, à Defensoria Pública e ao Ministério Público.",
+  exp: "Correto." },
+
+{ id: "ncg1248", d: "Normas da Corregedoria", ref: "NSCGJ, art. 1.248-A",
+  af: "Na intimação por portal eletrônico, se o intimando não consultar o teor em 10 dias úteis, a intimação será considerada realizada no término desse prazo.",
+  c: false,
+  lei: "Art. 1248-A. Nas intimações realizadas por meio de Portal Eletrônico: (...) II - considerar-se-á realizada a intimação no dia em que o intimando efetivar a consulta eletrônica (...); III - (...) nos casos em que a consulta se dê em dia não útil, a intimação será considerada como realizada no primeiro dia útil seguinte. IV - a consulta (...) deverá ser feita em até 10 (dez) dias corridos contados da data do envio da intimação, sob pena de considerar-se a intimação automaticamente realizada na data do término desse prazo;",
+  exp: "São 10 dias CORRIDOS, não úteis." },
+
+{ id: "ncg1250", d: "Normas da Corregedoria", ref: "NSCGJ, arts. 1.250 e 1.251",
+  af: "Na citação pelo correio com aviso de recebimento digital, considera-se data de juntada a da disponibilização do AR pelos Correios no processo eletrônico.",
+  c: true,
+  lei: "Art. 1.250. Nas citações ou intimações pelo correio, considera-se como data de juntada do aviso de recebimento aos autos, para fins de contagem do prazo (artigo 231 do Código de Processo Civil): I - a data da digitalização e liberação, pelo ofício de justiça, no processo eletrônico, do aviso de recebimento físico; II - a data da disponibilização, pelos Correios, no processo eletrônico, do aviso de recebimento digital.",
+  exp: "Correto. Se o AR for físico, vale a data da digitalização e liberação pelo cartório." },
+
+// ===================== CÓDIGO PENAL (lacunas do PDF) =====================
+{ id: "cp294", d: "Direito Penal", ref: "CP, art. 294",
+  af: "Fabricar, adquirir, fornecer, possuir ou guardar objeto especialmente destinado à falsificação de papéis públicos é crime punido com reclusão de 1 a 3 anos e multa.",
+  c: true,
+  lei: "Art. 294 - Fabricar, adquirir, fornecer, possuir ou guardar objeto especialmente destinado à falsificação de qualquer dos papéis referidos no artigo anterior: Pena - reclusão, de um a três anos, e multa.",
+  exp: "Correto. Cobrado em 2021, 2023 e 2024." },
+
+{ id: "cp295", d: "Direito Penal", ref: "CP, art. 295",
+  af: "Nos crimes de falsificação de papéis públicos, se o agente é funcionário público e se prevalece do cargo, a pena é aumentada de um terço.",
+  c: false,
+  lei: "Art. 295 - Se o agente é funcionário público, e comete o crime prevalecendo-se do cargo, aumenta-se a pena de sexta parte.",
+  exp: "O aumento é de SEXTA PARTE (1/6)." },
+
+// ===================== PROCESSO PENAL + LEI 9.099 (lacunas do PDF) =====================
+{ id: "cpp262", d: "Direito Processual Penal", ref: "CPP, art. 262",
+  af: "Ao acusado menor dar-se-á curador.",
+  c: true,
+  lei: "Art. 262. Ao acusado menor dar-se-á curador.",
+  exp: "Correto. É a letra do art. 262, cobrada em 2023." },
+
+{ id: "cpp353", d: "Direito Processual Penal", ref: "CPP, arts. 352 e 353",
+  af: "Quando o réu estiver fora do território da jurisdição do juiz processante, será citado por edital.",
+  c: false,
+  lei: "Art. 352. O mandado de citação indicará: I - o nome do juiz; II - o nome do querelante nas ações iniciadas por queixa; III - o nome do réu, ou, se for desconhecido, os seus sinais característicos; (...) VII - a subscrição do escrivão e a rubrica do juiz. Art. 353. Quando o réu estiver fora do território da jurisdição do juiz processante, será citado mediante precatória.",
+  exp: "Réu fora da jurisdição = citação por PRECATÓRIA. Edital é para quem não é encontrado (art. 361)." },
+
+{ id: "cpp357", d: "Direito Processual Penal", ref: "CPP, art. 357",
+  af: "São requisitos da citação por mandado a leitura do mandado ao citando e a entrega da contrafé, além da declaração do oficial, na certidão, sobre a entrega e sua aceitação ou recusa.",
+  c: true,
+  lei: "Art. 357. São requisitos da citação por mandado: I - leitura do mandado ao citando pelo oficial e entrega da contrafé, na qual se mencionarão dia e hora da citação; II - declaração do oficial, na certidão, da entrega da contrafé, e sua aceitação ou recusa.",
+  exp: "Correto." },
+
+{ id: "cpp363", d: "Direito Processual Penal", ref: "CPP, art. 363",
+  af: "O processo penal terá completada a sua formação quando for recebida a denúncia.",
+  c: false,
+  lei: "Art. 363. O processo terá completada a sua formação quando realizada a citação do acusado. § 1º Não sendo encontrado o acusado, será procedida a citação por edital. (...) § 4º Comparecendo o acusado citado por edital, em qualquer tempo, o processo observará o disposto nos arts. 394 e seguintes deste Código.",
+  exp: "A formação do processo se completa com a CITAÇÃO do acusado." },
+
+{ id: "cpp394a", d: "Direito Processual Penal", ref: "CPP, art. 394-A",
+  af: "Os processos que apurem violência contra a mulher independem do pagamento de custas, e essa isenção se estende ao acusado.",
+  c: false,
+  lei: "Art. 394-A. Os processos que apurem a prática de crime hediondo ou violência contra a mulher terão prioridade de tramitação em todas as instâncias. § 1º Os processos que apurem violência contra a mulher independerão do pagamento de custas, taxas ou despesas processuais, salvo em caso de má-fé. § 2º As isenções de que trata o § 1º deste artigo aplicam-se apenas à vítima e, em caso de morte, ao cônjuge, ascendente, descendente ou irmão (...).",
+  exp: "A isenção vale APENAS para a VÍTIMA (e, se ela morrer, cônjuge, ascendente, descendente ou irmão). Crime hediondo e violência contra a mulher têm prioridade de tramitação." },
+
+{ id: "cpp405", d: "Direito Processual Penal", ref: "CPP, art. 405, §§ 1º e 2º",
+  af: "No registro audiovisual dos depoimentos, será encaminhada às partes cópia do registro original, sem necessidade de transcrição.",
+  c: true,
+  lei: "Art. 405. Do ocorrido em audiência será lavrado termo em livro próprio, assinado pelo juiz e pelas partes (...). § 1º Sempre que possível, o registro dos depoimentos do investigado, indiciado, ofendido e testemunhas será feito pelos meios ou recursos de gravação magnética, estenotipia, digital ou técnica similar, inclusive audiovisual (...). § 2º No caso de registro por meio audiovisual, será encaminhado às partes cópia do registro original, sem necessidade de transcrição.",
+  exp: "Correto." },
+
+{ id: "cpp406", d: "Direito Processual Penal", ref: "CPP, art. 406",
+  af: "No procedimento do júri, o acusado é citado para responder à acusação por escrito em 15 dias, e a acusação pode arrolar até 5 testemunhas na denúncia.",
+  c: false,
+  lei: "Art. 406. O juiz, ao receber a denúncia ou a queixa, ordenará a citação do acusado para responder a acusação, por escrito, no prazo de 10 (dez) dias. (...) § 2º A acusação deverá arrolar testemunhas, até o máximo de 8 (oito), na denúncia ou na queixa.",
+  exp: "Resposta em 10 DIAS e até 8 TESTEMUNHAS na 1ª fase do júri. No plenário (art. 422) é que são até 5 testemunhas." },
+
+{ id: "cpp422", d: "Direito Processual Penal", ref: "CPP, art. 422",
+  af: "Na preparação do plenário do júri, MP e defesa são intimados para, em 5 dias, apresentar rol de até 5 testemunhas que irão depor em plenário.",
+  c: true,
+  lei: "Art. 422. Ao receber os autos, o presidente do Tribunal do Júri determinará a intimação do órgão do Ministério Público ou do querelante, no caso de queixa, e do defensor, para, no prazo de 5 (cinco) dias, apresentarem rol de testemunhas que irão depor em plenário, até o máximo de 5 (cinco), oportunidade em que poderão juntar documentos e requerer diligência.",
+  exp: "Correto. Plenário: 5 dias e até 5 testemunhas." },
+
+{ id: "cpp449", d: "Direito Processual Penal", ref: "CPP, art. 449",
+  af: "Não pode servir o jurado que tiver funcionado em julgamento anterior do mesmo processo, independentemente da causa do novo julgamento, ou que tiver manifestado prévia disposição para condenar ou absolver.",
+  c: true,
+  lei: "Art. 449. Não poderá servir o jurado que: I – tiver funcionado em julgamento anterior do mesmo processo, independentemente da causa determinante do julgamento posterior; II – no caso do concurso de pessoas, houver integrado o Conselho de Sentença que julgou o outro acusado; III – tiver manifestado prévia disposição para condenar ou absolver o acusado.",
+  exp: "Correto. Cobrado em 2024." },
+
+{ id: "cpp534", d: "Direito Processual Penal", ref: "CPP, art. 534",
+  af: "No procedimento sumário, as alegações finais orais duram 15 minutos para cada parte, prorrogáveis por mais 5.",
+  c: false,
+  lei: "Art. 534. As alegações finais serão orais, concedendo-se a palavra, respectivamente, à acusação e à defesa, pelo prazo de 20 (vinte) minutos, prorrogáveis por mais 10 (dez), proferindo o juiz, a seguir, sentença. § 1º Havendo mais de um acusado, o tempo previsto para a defesa de cada um será individual. § 2º Ao assistente do Ministério Público, após a manifestação deste, serão concedidos 10 (dez) minutos, prorrogando-se por igual período o tempo de manifestação da defesa.",
+  exp: "São 20 MINUTOS + 10. Assistente do MP: 10 minutos." },
+
+{ id: "cpp616", d: "Direito Processual Penal", ref: "CPP, art. 616",
+  af: "No julgamento das apelações, o tribunal pode proceder a novo interrogatório do acusado, reinquirir testemunhas ou determinar outras diligências.",
+  c: true,
+  lei: "Art. 616. No julgamento das apelações poderá o tribunal, câmara ou turma proceder a novo interrogatório do acusado, reinquirir testemunhas ou determinar outras diligências.",
+  exp: "Correto." },
+
+{ id: "cpp647a", d: "Direito Processual Penal", ref: "CPP, arts. 647-A e 649",
+  af: "Qualquer autoridade judicial pode expedir de ofício ordem de habeas corpus, individual ou coletivo, ainda que não conhecidos a ação ou o recurso em que veiculado o pedido.",
+  c: true,
+  lei: "Art. 647-A. No âmbito de sua competência jurisdicional, qualquer autoridade judicial poderá expedir de ofício ordem de habeas corpus, individual ou coletivo (...). Parágrafo único. A ordem de habeas corpus poderá ser concedida de ofício pelo juiz ou pelo tribunal em processo de competência originária ou recursal, ainda que não conhecidos a ação ou o recurso (...). Art. 649. O juiz ou o tribunal, dentro dos limites da sua jurisdição, fará passar imediatamente a ordem impetrada, nos casos em que tenha cabimento, seja qual for a autoridade coatora.",
+  exp: "Correto. Cobrado em 2024." },
+
+{ id: "cpp664", d: "Direito Processual Penal", ref: "CPP, art. 664, parágrafo único",
+  af: "No julgamento de habeas corpus, havendo empate e já tendo o presidente votado, prevalece a decisão desfavorável ao paciente.",
+  c: false,
+  lei: "Art. 664. Recebidas as informações, ou dispensadas, o habeas corpus será julgado na primeira sessão, podendo, entretanto, adiar-se o julgamento para a sessão seguinte. Parágrafo único. A decisão será tomada por maioria de votos. Havendo empate, se o presidente não tiver tomado parte na votação, proferirá voto de desempate; no caso contrário, prevalecerá a decisão mais favorável ao paciente.",
+  exp: "Se o presidente já votou, o empate favorece o PACIENTE." },
+
+{ id: "jec64", d: "Direito Processual Penal", ref: "Lei 9.099/95, arts. 64 e 72",
+  af: "No Juizado Especial Criminal, os atos processuais podem realizar-se em horário noturno e em qualquer dia da semana, conforme as normas de organização judiciária.",
+  c: true,
+  lei: "Art. 64. Os atos processuais serão públicos e poderão realizar-se em horário noturno e em qualquer dia da semana, conforme dispuserem as normas de organização judiciária. | Art. 72. Na audiência preliminar, presente o representante do Ministério Público, o autor do fato e a vítima e, se possível, o responsável civil, acompanhados por seus advogados, o Juiz esclarecerá sobre a possibilidade da composição dos danos e da aceitação da proposta de aplicação imediata de pena não privativa de liberdade.",
+  exp: "Correto." },
+
+// ===================== PROCESSO CIVIL (lacunas do PDF) =====================
+{ id: "cpc191", d: "Direito Processual Civil", ref: "CPC, art. 191",
+  af: "O calendário processual fixado de comum acordo vincula as partes e o juiz, e dispensa a intimação para os atos cujas datas nele foram designadas.",
+  c: true,
+  lei: "Art. 191. De comum acordo, o juiz e as partes podem fixar calendário para a prática dos atos processuais, quando for o caso. § 1º O calendário vincula as partes e o juiz, e os prazos nele previstos somente serão modificados em casos excepcionais, devidamente justificados. § 2º Dispensa-se a intimação das partes para a prática de ato processual ou a realização de audiência cujas datas tiverem sido designadas no calendário.",
+  exp: "Correto." },
+
+{ id: "cpc200", d: "Direito Processual Civil", ref: "CPC, art. 200",
+  af: "A desistência da ação produz efeitos imediatamente, independentemente de homologação.",
+  c: false,
+  lei: "Art. 200. Os atos das partes consistentes em declarações unilaterais ou bilaterais de vontade produzem imediatamente a constituição, modificação ou extinção de direitos processuais. Parágrafo único. A desistência da ação só produzirá efeitos após homologação judicial.",
+  exp: "A regra é o efeito imediato, MAS a desistência da ação só produz efeitos após HOMOLOGAÇÃO judicial." },
+
+{ id: "cpc202", d: "Direito Processual Civil", ref: "CPC, art. 202",
+  af: "É vedado lançar nos autos cotas marginais ou interlineares, que o juiz mandará riscar, impondo multa de metade do salário-mínimo a quem as escrever.",
+  c: true,
+  lei: "Art. 202. É vedado lançar nos autos cotas marginais ou interlineares, as quais o juiz mandará riscar, impondo a quem as escrever multa correspondente à metade do salário-mínimo.",
+  exp: "Correto." },
+
+{ id: "cpc216", d: "Direito Processual Civil", ref: "CPC, art. 216",
+  af: "Além dos declarados em lei, são feriados para efeito forense os sábados, os domingos e os dias em que não haja expediente forense.",
+  c: true,
+  lei: "Art. 216. Além dos declarados em lei, são feriados, para efeito forense, os sábados, os domingos e os dias em que não haja expediente forense.",
+  exp: "Correto." },
+
+{ id: "cpc222", d: "Direito Processual Civil", ref: "CPC, art. 222",
+  af: "Na comarca de difícil transporte, o juiz pode prorrogar os prazos por até 1 mês, e pode reduzir prazos peremptórios mesmo sem anuência das partes.",
+  c: false,
+  lei: "Art. 222. Na comarca, seção ou subseção judiciária onde for difícil o transporte, o juiz poderá prorrogar os prazos por até 2 (dois) meses. § 1º Ao juiz é vedado reduzir prazos peremptórios sem anuência das partes. § 2º Havendo calamidade pública, o limite previsto no caput para prorrogação de prazos poderá ser excedido.",
+  exp: "Prorrogação de até 2 MESES. E é VEDADO reduzir prazos peremptórios sem anuência das partes." },
+
+{ id: "cpc231b", d: "Direito Processual Civil", ref: "CPC, art. 231, I a III",
+  af: "Quando a citação for pelo correio, considera-se dia do começo do prazo a data de juntada aos autos do aviso de recebimento.",
+  c: true,
+  lei: "Art. 231. Salvo disposição em sentido diverso, considera-se dia do começo do prazo: I - a data de juntada aos autos do aviso de recebimento, quando a citação ou a intimação for pelo correio; II - a data de juntada aos autos do mandado cumprido, quando a citação ou a intimação for por oficial de justiça; III - a data de ocorrência da citação ou da intimação, quando ela se der por ato do escrivão ou do chefe de secretaria;",
+  exp: "Correto." },
+
+{ id: "cpc245", d: "Direito Processual Civil", ref: "CPC, art. 245",
+  af: "Se o citando parecer mentalmente incapaz, o oficial não fará a citação, e o médico nomeado pelo juiz apresentará laudo em 10 dias.",
+  c: false,
+  lei: "Art. 245. Não se fará citação quando se verificar que o citando é mentalmente incapaz ou está impossibilitado de recebê-la. § 1º O oficial de justiça descreverá e certificará minuciosamente a ocorrência. § 2º Para examinar o citando, o juiz nomeará médico, que apresentará laudo no prazo de 5 (cinco) dias. § 3º Dispensa-se a nomeação de que trata o § 2º se pessoa da família apresentar declaração do médico do citando que ateste a incapacidade deste.",
+  exp: "O laudo é apresentado em 5 DIAS (e é dispensado se a família apresentar declaração do médico do citando)." },
+
+{ id: "cpc322", d: "Direito Processual Civil", ref: "CPC, art. 322",
+  af: "Compreendem-se no principal os juros legais, a correção monetária e as verbas de sucumbência, inclusive os honorários advocatícios.",
+  c: true,
+  lei: "Art. 322. O pedido deve ser certo. § 1º Compreendem-se no principal os juros legais, a correção monetária e as verbas de sucumbência, inclusive os honorários advocatícios. § 2º A interpretação do pedido considerará o conjunto da postulação e observará o princípio da boa-fé.",
+  exp: "Correto." },
+
+{ id: "cpc330", d: "Direito Processual Civil", ref: "CPC, art. 330",
+  af: "Considera-se inepta a petição inicial quando lhe faltar pedido ou causa de pedir.",
+  c: true,
+  lei: "Art. 330. A petição inicial será indeferida quando: I - for inepta; II - a parte for manifestamente ilegítima; III - o autor carecer de interesse processual; IV - não atendidas as prescrições dos arts. 106 e 321. § 1º Considera-se inepta a petição inicial quando: I - lhe faltar pedido ou causa de pedir; II - o pedido for indeterminado, ressalvadas as hipóteses legais em que se permite o pedido genérico; III - da narração dos fatos não decorrer logicamente a conclusão; (...)",
+  exp: "Correto." },
+
+{ id: "cpc443", d: "Direito Processual Civil", ref: "CPC, arts. 442 e 443",
+  af: "O juiz indeferirá a inquirição de testemunhas sobre fatos já provados por documento ou confissão, ou que só por documento ou perícia puderem ser provados.",
+  c: true,
+  lei: "Art. 442. A prova testemunhal é sempre admissível, não dispondo a lei de modo diverso. Art. 443. O juiz indeferirá a inquirição de testemunhas sobre fatos: I - já provados por documento ou confissão da parte; II - que só por documento ou por exame pericial puderem ser provados.",
+  exp: "Correto." },
+
+{ id: "cpc447", d: "Direito Processual Civil", ref: "CPC, art. 447, § 1º",
+  af: "No processo civil, é incapaz para depor como testemunha quem tiver menos de 18 anos.",
+  c: false,
+  lei: "Art. 447. Podem depor como testemunhas todas as pessoas, exceto as incapazes, impedidas ou suspeitas. § 1º São incapazes: I - o interdito por enfermidade ou deficiência mental; II - o que, acometido por enfermidade ou retardamento mental, ao tempo em que ocorreram os fatos, não podia discerni-los (...); III - o que tiver menos de 16 (dezesseis) anos; IV - o cego e o surdo, quando a ciência do fato depender dos sentidos que lhes faltam.",
+  exp: "O limite é MENOS DE 16 ANOS." },
+
+{ id: "cpc466", d: "Direito Processual Civil", ref: "CPC, art. 466",
+  af: "Os assistentes técnicos são de confiança da parte e não estão sujeitos a impedimento ou suspeição.",
+  c: true,
+  lei: "Art. 466. O perito cumprirá escrupulosamente o encargo que lhe foi cometido, independentemente de termo de compromisso. § 1º Os assistentes técnicos são de confiança da parte e não estão sujeitos a impedimento ou suspeição. § 2º O perito deve assegurar aos assistentes das partes o acesso e o acompanhamento das diligências e dos exames que realizar, com prévia comunicação, comprovada nos autos, com antecedência mínima de 5 (cinco) dias.",
+  exp: "Correto. E o perito dispensa termo de compromisso." },
+
+{ id: "cpc492", d: "Direito Processual Civil", ref: "CPC, art. 492",
+  af: "É vedado ao juiz proferir decisão de natureza diversa da pedida ou condenar a parte em quantidade superior ou objeto diverso do demandado.",
+  c: true,
+  lei: "Art. 492. É vedado ao juiz proferir decisão de natureza diversa da pedida, bem como condenar a parte em quantidade superior ou em objeto diverso do que lhe foi demandado. Parágrafo único. A decisão deve ser certa, ainda que resolva relação jurídica condicional.",
+  exp: "Correto (vedação de sentença extra e ultra petita)." },
+
+{ id: "cpc1004", d: "Direito Processual Civil", ref: "CPC, art. 1.004",
+  af: "Se, durante o prazo para recorrer, falecer a parte ou seu advogado, o prazo será restituído e começará a correr novamente depois da intimação.",
+  c: true,
+  lei: "Art. 1.004. Se, durante o prazo para a interposição do recurso, sobrevier o falecimento da parte ou de seu advogado ou ocorrer motivo de força maior que suspenda o curso do processo, será tal prazo restituído em proveito da parte, do herdeiro ou do sucessor, contra quem começará a correr novamente depois da intimação.",
+  exp: "Correto." },
+
+{ id: "cpc1014", d: "Direito Processual Civil", ref: "CPC, art. 1.014",
+  af: "Questões de fato não propostas no juízo inferior jamais podem ser suscitadas na apelação.",
+  c: false,
+  lei: "Art. 1.014. As questões de fato não propostas no juízo inferior poderão ser suscitadas na apelação, se a parte provar que deixou de fazê-lo por motivo de força maior.",
+  exp: "PODEM ser suscitadas se a parte provar FORÇA MAIOR." },
+
+{ id: "cpc1025", d: "Direito Processual Civil", ref: "CPC, art. 1.025",
+  af: "Os elementos suscitados nos embargos de declaração consideram-se incluídos no acórdão para fins de pré-questionamento, ainda que os embargos sejam inadmitidos ou rejeitados, se o tribunal superior reconhecer o vício.",
+  c: true,
+  lei: "Art. 1.025. Consideram-se incluídos no acórdão os elementos que o embargante suscitou, para fins de pré-questionamento, ainda que os embargos de declaração sejam inadmitidos ou rejeitados, caso o tribunal superior considere existentes erro, omissão, contradição ou obscuridade.",
+  exp: "Correto (pré-questionamento ficto)." },
+
+// ===================== CONSTITUIÇÃO (lacuna do PDF) =====================
+{ id: "cf39", d: "Direito Constitucional", ref: "CF/88, art. 39",
+  af: "A União, os Estados, o DF e os Municípios instituirão regime jurídico único e planos de carreira para os servidores da administração direta, das autarquias e das fundações públicas.",
+  c: true,
+  lei: "Art. 39. A União, os Estados, o Distrito Federal e os Municípios instituirão, no âmbito de sua competência, regime jurídico único e planos de carreira para os servidores da administração pública direta, das autarquias e das fundações públicas.",
+  exp: "Correto. Empresas públicas e sociedades de economia mista NÃO estão no art. 39." },
+
+// ===================== ESTATUTO DOS SERVIDORES (lacunas do PDF) =====================
+{ id: "est47", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 47",
+  af: "São requisitos para a posse em cargo público, entre outros, ser brasileiro e ter completado 21 anos de idade.",
+  c: false,
+  lei: "Artigo 47 - São requisitos para a posse em cargo público: I - ser brasileiro; II - ter completado 18 (dezoito) anos de idade; III - estar em dia com as obrigações militares; IV - estar no gozo dos direitos políticos; V - ter boa conduta; VI - gozar de boa saúde (...).",
+  exp: "A idade mínima é de 18 ANOS." },
+
+{ id: "est57", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 57",
+  af: "Exercício é o ato pelo qual o funcionário assume as atribuições e responsabilidades do cargo.",
+  c: true,
+  lei: "Artigo 57 - O exercício é o ato pelo qual o funcionário assume as atribuições e responsabilidades do cargo. § 1° - O início, a interrupção e o reinicio do exercício serão registrados no assentamento individual do funcionário.",
+  exp: "Correto." },
+
+{ id: "est279", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 279",
+  af: "No processo administrativo, o acusado assiste pessoalmente à inquirição do denunciante.",
+  c: false,
+  lei: "Artigo 279 - Havendo denunciante, este deverá prestar declarações, no interregno entre a data da citação e a fixada para o interrogatório do acusado, sendo notificado para tal fim. § 1º - A oitiva do denunciante deverá ser acompanhada pelo advogado do acusado, próprio ou dativo. § 2º - O acusado não assistirá à inquirição do denunciante; antes porém de ser interrogado, poderá ter ciência das declarações que aquele houver prestado.",
+  exp: "O acusado NÃO assiste; quem acompanha é o ADVOGADO dele. O acusado pode ter ciência das declarações antes do interrogatório." },
+
+{ id: "est283", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 283",
+  af: "Comparecendo ou não o acusado ao interrogatório, inicia-se o prazo de 3 dias para requerer ou apresentar provas, e a prova de antecedentes é feita exclusivamente por documentos.",
+  c: true,
+  lei: "Artigo 283 - Comparecendo ou não o acusado ao interrogatório, inicia-se o prazo de 3 (três) dias para requerer a produção de provas, ou apresentá-las. § 1º - O presidente e cada acusado poderão arrolar até 05 (cinco) testemunhas. § 2º - A prova de antecedentes do acusado será feita exclusivamente por documentos, até as alegações finais.",
+  exp: "Correto." },
+
+{ id: "est306", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 306",
+  af: "É defeso fornecer à imprensa notas sobre os atos do processo disciplinar, salvo no interesse da Administração, a juízo do Secretário de Estado, do Controlador Geral ou do Procurador Geral do Estado.",
+  c: true,
+  lei: "Artigo 306 - É defeso fornecer à imprensa ou a outros meios de divulgação notas sobre os atos processuais, salvo no interesse da Administração Pública, a juízo do Secretário de Estado, do Controlador Geral do Estado ou do Procurador Geral do Estado.",
+  exp: "Correto." },
+
+{ id: "est313", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, art. 313",
+  af: "Cabe pedido de reconsideração, renovável uma vez, de decisão tomada pelo Governador em única instância, no prazo de 30 dias.",
+  c: false,
+  lei: "Artigo 313 - Caberá pedido de reconsideração, que não poderá ser renovado, de decisão tomada pelo Governador do Estado em única instância, no prazo de 30 (trinta) dias.",
+  exp: "O pedido de reconsideração NÃO PODE SER RENOVADO." },
+
+{ id: "est318", d: "Estatuto dos Servidores SP", ref: "Lei SP 10.261/68, arts. 318 e 321",
+  af: "É competente para examinar a admissibilidade e decidir a revisão a autoridade que aplicou a penalidade ou que a confirmou em grau de recurso; a revisão procedente pode absolver o punido ou anular o processo.",
+  c: true,
+  lei: "Artigo 318 - A autoridade que aplicou a penalidade, ou que a tiver confirmado em grau de recurso, será competente para o exame da admissibilidade do pedido de revisão, bem como, caso deferido o processamento, para a sua decisão final. | Artigo 321 - A decisão que julgar procedente a revisão poderá alterar a classificação da infração, absolver o punido, modificar a pena ou anular o processo, restabelecendo os direitos atingidos pela decisão reformada.",
+  exp: "Correto. Lembre: a pena nunca pode ser agravada na revisão (art. 316)." }
+
+);
+
+// Cartões de artigos que NÃO constam dos PDFs de estudo: retirados da rotação.
+// (CF arts. 14 a 17 - direitos políticos; LC 1.111, Anexo VII)
+(function () {
+    const FORA_DOS_PDFS = ["cf14", "cf14b", "cf14c", "cf14d", "cf14e", "cf14f", "cf14g",
+                           "cf15", "cf16", "cf17", "lc1111-esc"];
+    for (let i = CARTOES.length - 1; i >= 0; i--) {
+        if (FORA_DOS_PDFS.includes(CARTOES[i].id)) CARTOES.splice(i, 1);
+    }
+})();
