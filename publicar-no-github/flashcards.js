@@ -26,7 +26,8 @@ const ICONES = {
     "LC 1.111/2010 – Carreiras TJSP": "📈",
     "Regimento Interno TJSP": "📜",
     "Estatuto da Pessoa com Deficiência": "♿",
-    "Normas da Corregedoria": "🗂️"
+    "Normas da Corregedoria": "🗂️",
+    "Atualidades 2026": "🌎"
 };
 
 
@@ -73,6 +74,65 @@ let materiaEscolhida = "Todas as matérias";
 const MATERIAS = ["Todas as matérias", ...new Set(CARTOES.map(c => c.d))];
 const cartoesDa = m => m === "Todas as matérias" ? CARTOES : CARTOES.filter(c => c.d === m);
 
+// -------------------------------------------------------------
+// TEMAS DE PORTUGUÊS
+// Os cartões novos trazem o tema no campo "t"; os antigos recebem
+// o tema pelo prefixo do id (pt-crase1 -> "pt-crase").
+// -------------------------------------------------------------
+const PT = "Língua Portuguesa";
+const TODOS_TEMAS = "Todos os temas";
+const TEMAS_PT = [
+    "Modos e tempos verbais", "Pronomes", "Advérbios", "Preposição", "Conjunção",
+    "Classes de palavras", "Colocação pronominal", "Sinônimos e antônimos",
+    "Sentido próprio e figurado", "Significação de palavras e expressões", "Pontuação",
+    "Regência verbal e nominal", "Crase", "Concordância verbal e nominal",
+    "Interpretação de texto", "Ortografia e acentuação"
+];
+const TEMA_POR_PREFIXO = {
+    "pt-crase": "Crase", "pt-cv": "Concordância verbal e nominal", "pt-cn": "Concordância verbal e nominal",
+    "pt-reg": "Regência verbal e nominal", "pt-col": "Colocação pronominal", "pt-pont": "Pontuação",
+    "pt-ac": "Ortografia e acentuação", "pt-ort": "Ortografia e acentuação",
+    "pt-verb": "Modos e tempos verbais", "pt-voz": "Modos e tempos verbais", "pt-pron": "Pronomes",
+    "pt-sem": "Conjunção", "pt-par": "Significação de palavras e expressões"
+};
+CARTOES.forEach(c => {
+    if (c.d === PT && !c.t) c.t = TEMA_POR_PREFIXO[c.id.replace(/\d+$/, "")] || "Ortografia e acentuação";
+});
+let temaPT = TODOS_TEMAS;
+try { temaPT = localStorage.getItem("studyplan-tema-pt") || TODOS_TEMAS; } catch {}
+
+// Cartões usados na sessão: em Português, respeita o tema escolhido
+function cartoesDaSessao() {
+    const base = cartoesDa(materiaEscolhida);
+    if (materiaEscolhida === PT && temaPT !== TODOS_TEMAS) return base.filter(c => c.t === temaPT);
+    return base;
+}
+
+function montarTemasPT() {
+    const caixa = document.createElement("div");
+    caixa.className = "temas-pt";
+    const titulo = document.createElement("p");
+    titulo.className = "temas-pt-titulo";
+    titulo.textContent = "Escolha o tema de Português:";
+    caixa.appendChild(titulo);
+    const doPT = CARTOES.filter(c => c.d === PT);
+    [TODOS_TEMAS, ...TEMAS_PT].forEach(tema => {
+        const qtd = tema === TODOS_TEMAS ? doPT.length : doPT.filter(c => c.t === tema).length;
+        if (!qtd) return;
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "chip" + (tema === temaPT ? " ativa" : "");
+        b.textContent = `${tema} (${qtd})`;
+        b.addEventListener("click", () => {
+            temaPT = tema;
+            try { localStorage.setItem("studyplan-tema-pt", tema); } catch {}
+            renderizarInicio();
+        });
+        caixa.appendChild(b);
+    });
+    return caixa;
+}
+
 
 // -------------------------------------------------------------
 // TELA INICIAL
@@ -105,6 +165,7 @@ function renderizarInicio() {
         botao.querySelector("strong").textContent = m;
         botao.addEventListener("click", () => { materiaEscolhida = m; renderizarInicio(); });
         lista.appendChild(botao);
+        if (m === PT && materiaEscolhida === PT) lista.appendChild(montarTemasPT());
     });
     $("avisoInicio").hidden = true;
 }
@@ -138,7 +199,7 @@ function montarSessao(modo, base) {
 
 $("botaoComecar").addEventListener("click", () => {
     const modo = document.querySelector('input[name="modo"]:checked').value;
-    const fila = montarSessao(modo, cartoesDa(materiaEscolhida));
+    const fila = montarSessao(modo, cartoesDaSessao());
     if (fila.length === 0) {
         $("avisoInicio").textContent = "Nenhum cartão para revisar nessa matéria. Escolha outro modo! 🎉";
         $("avisoInicio").hidden = false;
@@ -187,7 +248,7 @@ function mostrarCartao() {
     $("placarSessao").textContent = `✅ ${sessao.acertos} · ❌ ${sessao.errados.length}`;
     $("trilhoPreenchido").style.width = (sessao.indice / total * 100) + "%";
 
-    $("cartaoMateria").textContent = c.d;
+    $("cartaoMateria").textContent = c.t ? `${c.d} · ${c.t}` : c.d;
     $("cartaoAfirmacao").textContent = c.af;
     $("botoesResposta").hidden = false;
     $("verso").hidden = true;
@@ -211,7 +272,7 @@ function responder(respostaUsuario) {
     $("tituloExplicacao").textContent = c.c ? "💡 Ponto-chave" : "❗ O que estava errado";
     $("explicacao").textContent = c.exp;
     // Em Português o "artigo" é a regra gramatical
-    $("iconeReferencia").textContent = c.d === "Língua Portuguesa" ? "📘 Regra –" : "📜";
+    $("iconeReferencia").textContent = c.d === PT ? "📘 Regra –" : c.d === "Atualidades 2026" ? "📰" : "📜";
     $("referencia").textContent = c.ref;
     $("textoLei").textContent = c.lei;
     $("placarSessao").textContent = `✅ ${sessao.acertos} · ❌ ${sessao.errados.length}`;

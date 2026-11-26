@@ -266,3 +266,8 @@ body::before {
 .citacao-uso { margin-top: 10px; border-top: 1px dashed var(--borda); padding-top: 8px; }
 .citacao-uso summary { cursor: pointer; font-weight: 600; color: var(--azul); font-size: 14px; }
 .citacao-uso p { margin-top: 8px; font-size: 14px; background: var(--fundo); border-radius: 10px; padding: 10px 12px; }
+
+/* ---------- Temas de Português ---------- */
+.temas-pt { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 12px 12px; margin-top: -2px; background: var(--cartao); border: 2px solid var(--azul); border-top: 0; border-radius: 0 0 14px 14px; }
+.temas-pt-titulo { width: 100%; font-size: 13px; font-weight: 600; color: var(--suave); }
+.temas-pt .chip { white-space: normal; text-align: left; }
