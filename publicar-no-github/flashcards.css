@@ -288,3 +288,5 @@ body::before {
 .q-alt.correta .q-letra { background: var(--verde); color: #fff; }
 .q-alt.errada { border-color: var(--vermelho); background: var(--vermelho-claro); }
 .q-alt.errada .q-letra { background: var(--vermelho); color: #fff; }
+
+.q-tj { margin-left: 6px; color: #9a6b00; background: rgba(230,170,0,.18); }

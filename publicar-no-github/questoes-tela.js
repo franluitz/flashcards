@@ -65,6 +65,16 @@
             iniciar(embaralhar(base).sort((a, b) => peso(a) - peso(b)).slice(0, TAM));
         });
         tela.appendChild(b1);
+        const doTJ = base.filter(q => q.tj);
+        if (doTJ.length) {
+            const b3 = el("button", "botao secundario grande", `⭐ Só o que já caiu no TJ-SP (${doTJ.length})`);
+            b3.type = "button";
+            b3.addEventListener("click", () => {
+                const peso = q => !prog[q.id] ? 1 : prog[q.id].ult === false ? 0 : 2 + Math.random();
+                iniciar(embaralhar(doTJ).sort((a, b) => peso(a) - peso(b)).slice(0, TAM));
+            });
+            tela.appendChild(b3);
+        }
         const erradas = base.filter(q => prog[q.id] && prog[q.id].ult === false);
         if (erradas.length) {
             const b2 = el("button", "botao secundario grande", `❌ Refazer as que errei (${erradas.length})`);
@@ -107,6 +117,7 @@
 
         const card = el("article", "cartao");
         card.appendChild(el("span", "etiqueta", `${ICONE(q.d)} ${q.d}`));
+        if (q.tj) card.appendChild(el("span", "etiqueta q-tj", "⭐ Já caiu no TJ-SP"));
         card.appendChild(el("p", "q-enunciado", q.enun));
         const alts = el("div", "q-alternativas");
         const botoes = q.alt.map((txt, k) => {
