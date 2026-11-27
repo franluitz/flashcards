@@ -27,7 +27,8 @@ const ICONES = {
     "Regimento Interno TJSP": "📜",
     "Estatuto da Pessoa com Deficiência": "♿",
     "Normas da Corregedoria": "🗂️",
-    "Atualidades 2026": "🌎"
+    "Atualidades 2026": "🌎",
+    "Informática": "🖥️"
 };
 
 
@@ -272,7 +273,7 @@ function responder(respostaUsuario) {
     $("tituloExplicacao").textContent = c.c ? "💡 Ponto-chave" : "❗ O que estava errado";
     $("explicacao").textContent = c.exp;
     // Em Português o "artigo" é a regra gramatical
-    $("iconeReferencia").textContent = c.d === PT ? "📘 Regra –" : c.d === "Atualidades 2026" ? "📰" : "📜";
+    $("iconeReferencia").textContent = c.d === PT ? "📘 Regra –" : c.d === "Atualidades 2026" ? "📰" : c.d === "Informática" ? "🖥️" : "📜";
     $("referencia").textContent = c.ref;
     $("textoLei").textContent = c.lei;
     $("placarSessao").textContent = `✅ ${sessao.acertos} · ❌ ${sessao.errados.length}`;
