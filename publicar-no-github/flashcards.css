@@ -271,3 +271,20 @@ body::before {
 .temas-pt { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 12px 12px; margin-top: -2px; background: var(--cartao); border: 2px solid var(--azul); border-top: 0; border-radius: 0 0 14px 14px; }
 .temas-pt-titulo { width: 100%; font-size: 13px; font-weight: 600; color: var(--suave); }
 .temas-pt .chip { white-space: normal; text-align: left; }
+
+/* ---------- Aba Questões ---------- */
+.abas { grid-template-columns: repeat(3, 1fr); }
+.aba { font-size: 13px; padding: 9px 4px; }
+.chips-quebra { flex-wrap: wrap; overflow: visible; }
+.q-intro { font-size: 13px; color: var(--suave); margin-bottom: 4px; }
+.q-enunciado { margin-top: 12px; font-size: 16px; font-weight: 600; line-height: 1.45; }
+.q-alternativas { display: grid; gap: 8px; margin-top: 16px; }
+.q-alt { display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%; font: inherit; font-size: 15px; color: var(--texto); background: var(--fundo); border: 2px solid var(--borda); border-radius: 12px; padding: 10px 12px; cursor: pointer; }
+.q-alt:not(:disabled):hover { border-color: var(--azul); }
+.q-alt:disabled { cursor: default; }
+.q-letra { flex: 0 0 26px; height: 26px; border-radius: 50%; background: var(--borda); display: grid; place-items: center; font-weight: 800; font-size: 13px; }
+.q-texto { flex: 1; padding-top: 2px; }
+.q-alt.correta { border-color: var(--verde); background: var(--verde-claro); }
+.q-alt.correta .q-letra { background: var(--verde); color: #fff; }
+.q-alt.errada { border-color: var(--vermelho); background: var(--vermelho-claro); }
+.q-alt.errada .q-letra { background: var(--vermelho); color: #fff; }

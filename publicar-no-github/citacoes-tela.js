@@ -1,11 +1,15 @@
 // =============================================================
-// ABA "CITAÇÕES": alterna entre Flashcards e Citações e
-// monta a lista de citações filtrada por tema.
+// ABAS: Flashcards / Questões / Citações
+// + tela de Citações para redação
 // =============================================================
 (function () {
-    const abaFlash = document.getElementById("abaFlashcards");
-    const abaCit = document.getElementById("abaCitacoes");
+    const abas = {
+        flashcards: document.getElementById("abaFlashcards"),
+        questoes: document.getElementById("abaQuestoes"),
+        citacoes: document.getElementById("abaCitacoes")
+    };
     const telaCit = document.getElementById("telaCitacoes");
+    const telaQst = document.getElementById("telaQuestoes");
     const telasFlash = ["telaInicio", "telaEstudo", "telaFim"].map(id => document.getElementById(id));
     const chips = document.getElementById("temasCitacoes");
     const lista = document.getElementById("listaCitacoes");
@@ -13,21 +17,22 @@
     let temaAtual = "Todos";
 
     function mostrarAba(qual) {
-        const citacoes = qual === "citacoes";
-        if (citacoes) {
-            telaFlashVisivel = telasFlash.find(t => !t.hidden) || telasFlash[0];
-            telasFlash.forEach(t => t.hidden = true);
-        } else {
-            telaFlashVisivel.hidden = false;
-        }
-        telaCit.hidden = !citacoes;
-        abaCit.classList.toggle("ativa", citacoes);
-        abaFlash.classList.toggle("ativa", !citacoes);
-        abaCit.setAttribute("aria-selected", citacoes);
-        abaFlash.setAttribute("aria-selected", !citacoes);
+        if (!abas[qual]) qual = "flashcards";
+        const flashAberto = telasFlash.some(t => !t.hidden);
+        if (flashAberto) telaFlashVisivel = telasFlash.find(t => !t.hidden);
+        telasFlash.forEach(t => t.hidden = true);
+        if (qual === "flashcards") telaFlashVisivel.hidden = false;
+        if (telaCit) telaCit.hidden = qual !== "citacoes";
+        if (telaQst) telaQst.hidden = qual !== "questoes";
+        Object.entries(abas).forEach(([nome, b]) => {
+            if (!b) return;
+            b.classList.toggle("ativa", nome === qual);
+            b.setAttribute("aria-selected", nome === qual);
+        });
         window.scrollTo(0, 0);
         try { localStorage.setItem("studyplan-aba", qual); } catch (e) {}
     }
+    window.mostrarAba = mostrarAba;
 
     function el(tag, classe, texto) {
         const e = document.createElement(tag);
@@ -38,8 +43,7 @@
 
     function montarChips() {
         chips.innerHTML = "";
-        const temas = ["Todos", ...Object.keys(TEMAS_CITACOES)];
-        temas.forEach(tema => {
+        ["Todos", ...Object.keys(TEMAS_CITACOES)].forEach(tema => {
             const qtd = tema === "Todos" ? CITACOES.length : CITACOES.filter(c => c.temas.includes(tema)).length;
             const b = el("button", "chip" + (tema === temaAtual ? " ativa" : ""),
                 (tema === "Todos" ? "📚 " : TEMAS_CITACOES[tema] + " ") + tema + " (" + qtd + ")");
@@ -69,11 +73,9 @@
         });
     }
 
-    abaFlash.addEventListener("click", () => mostrarAba("flashcards"));
-    abaCit.addEventListener("click", () => mostrarAba("citacoes"));
-    montarChips();
-    montarLista();
+    Object.entries(abas).forEach(([nome, b]) => b && b.addEventListener("click", () => mostrarAba(nome)));
+    if (chips && lista && typeof CITACOES !== "undefined") { montarChips(); montarLista(); }
     let salva = null;
     try { salva = localStorage.getItem("studyplan-aba"); } catch (e) {}
-    if (salva === "citacoes") mostrarAba("citacoes");
+    if (salva && salva !== "flashcards") mostrarAba(salva);
 })();
